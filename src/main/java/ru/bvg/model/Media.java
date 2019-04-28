@@ -25,7 +25,6 @@ public class Media {
     private Integer placeId;
     private String fileName;
     private List<String> labels;
-    private List<Integer> authors;
     private String video;
 
     public Media(String jiraKey) {

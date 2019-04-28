@@ -16,17 +16,6 @@ class ExporterDao {
     private JdbcTemplate jdbcTemplate;
 
     @Transactional
-    void insertScriptures() {
-        if (jdbcTemplate.queryForObject("select count(*)>0 from scripture", Boolean.class)) {
-            return;
-        }
-        int i = 1;
-        for (ScriptureEnum scripture : ScriptureEnum.values()) {
-            insertRefbook("scripture", scripture.getId(), scripture.getSiteName());
-        }
-    }
-
-    @Transactional
     Integer savePlace(String name) {
         Integer id = jdbcTemplate.queryForObject("select id from location where lower(name)=?", Integer.class, name.toLowerCase());
         if (id == null) {

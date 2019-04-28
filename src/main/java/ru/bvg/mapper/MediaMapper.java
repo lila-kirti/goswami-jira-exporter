@@ -12,6 +12,7 @@ import ru.bvg.util.ScriptureParser;
 
 import java.io.Console;
 import java.util.Collections;
+import java.util.Date;
 
 
 public class MediaMapper {
@@ -21,18 +22,20 @@ public class MediaMapper {
     public Media map(JiraIssue jiraIssue) {
         JiraField jiraFields = jiraIssue.getFields();
         Media media = new Media(jiraIssue.getKey());
-        media.setLectureDate(jiraFields.getLectureDate());
         media.setTitle(StringUtils.isEmpty(jiraFields.getPrettyName()) ? jiraFields.getName() : jiraFields.getPrettyName());
+        media.setTeaser(jiraFields.getDescription());
+        media.setText(jiraFields.getText());
+        media.setLectureDate(jiraFields.getLectureDate());
+        media.setIssueDate(new Date());
         media.setDuration(jiraFields.getDuration());
         media.setSize(jiraFields.getSize());
 
         //категория
         if (jiraFields.getCategory() != null) {
             CategoryEnum categoryEnum = CategoryEnum.getByJiraName(jiraFields.getCategory().getValue());
-            if (categoryEnum == null) {
-                throw new IllegalStateException("Category " + jiraFields.getCategory().getValue() + " not found!");
+            if (categoryEnum != null) {
+                media.setCategoryId(categoryEnum.getId());
             }
-            media.setCategoryId(categoryEnum.getId());
         }
         //священные писания
         if (jiraFields.getScripture() != null) {
@@ -62,7 +65,7 @@ public class MediaMapper {
             else if (jiraFields.getLanguage().getValue().equals("English"))
                 media.setLanguage("ENG");
         }
-        media.setTeaser(jiraFields.getDescription());
+        media.setFileName(jiraFields.getFileName());
         media.setVideo(jiraFields.getVideo());
         return media;
     }

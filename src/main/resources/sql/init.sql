@@ -5,12 +5,6 @@ CREATE TABLE IF NOT EXISTS location (
 );
 COMMENT ON TABLE location IS 'Справочник городов где читались лекции';
 
-CREATE TABLE IF NOT EXISTS author (
-    id               serial PRIMARY KEY,
-    "name"           character varying(255) not null
-);
-COMMENT ON TABLE author IS 'Справочник авторов лекций';
-
 CREATE TABLE IF NOT EXISTS tag (
     id               serial PRIMARY KEY,
     "name"           character varying(128) not null
@@ -76,13 +70,6 @@ CREATE TABLE IF NOT EXISTS media_tag (
     tag_id           integer not null references tag(id) on delete cascade
 );
 COMMENT ON TABLE media_tag IS 'Связка лекции и ключевых слов';
-
-CREATE TABLE IF NOT EXISTS media_author
-(
-    author_id         integer not null references author(id) on delete cascade,
-    media_id          integer not null references media(id) on delete cascade
-);
-COMMENT ON TABLE media_author IS 'В одном файле (media) может быть несколько выступающих';
 
 -- data_type  ('picture', 'video');
 CREATE TABLE media_data
