@@ -5,7 +5,9 @@ import lombok.Getter;
 import ru.bvg.enumeration.ScriptureEnum;
 import ru.bvg.model.Media;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class ScriptureParser {
 

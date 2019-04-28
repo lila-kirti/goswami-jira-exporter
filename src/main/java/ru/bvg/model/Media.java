@@ -24,7 +24,7 @@ public class Media {
     private String language;
     private Integer placeId;
     private String fileName;
-    private List<String> labels;
+    private List<Integer> labels;
     private String video;
 
     public Media(String jiraKey) {

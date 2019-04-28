@@ -10,7 +10,6 @@ import ru.bvg.model.JiraIssue;
 import ru.bvg.model.Media;
 import ru.bvg.util.ScriptureParser;
 
-import java.io.Console;
 import java.util.Collections;
 import java.util.Date;
 

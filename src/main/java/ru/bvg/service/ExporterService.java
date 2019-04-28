@@ -4,10 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.CollectionUtils;
 import ru.bvg.mapper.MediaMapper;
 import ru.bvg.model.JiraIssue;
 import ru.bvg.model.JiraIssueResponse;
 import ru.bvg.model.Media;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class ExporterService {
@@ -24,7 +28,7 @@ public class ExporterService {
 
     @Transactional(propagation = Propagation.NOT_SUPPORTED)
     public void export() {
-        JiraIssueResponse response = jiraService.getIssues(0, 1);
+        JiraIssueResponse response = jiraService.getIssues(0, 50);
         int offset = 0;
         for (int i = 0; i < response.getTotal(); i = i + MAX_SIZE) {
             offset += MAX_SIZE;
@@ -36,12 +40,21 @@ public class ExporterService {
     @Transactional
     private void export(JiraIssueResponse response) {
         MediaMapper mediaMapper = new MediaMapper();
+        List<Media> mediaList = new ArrayList<>();
         for (JiraIssue jiraIssue : response.getIssues()) {
             Media media = mediaMapper.map(jiraIssue);
+            //место
             if (jiraIssue.getFields().getPlace() != null) {
                 Integer placeId = dao.savePlace(jiraIssue.getFields().getPlace());
                 media.setPlaceId(placeId);
             }
+            //метки
+            if (!CollectionUtils.isEmpty(jiraIssue.getFields().getLabels())){
+                List<Integer> labels = dao.saveLabels(jiraIssue.getFields().getLabels());
+                media.setLabels(labels);
+            }
+            mediaList.add(media);
         }
+        dao.saveMedia(mediaList);
     }
 }

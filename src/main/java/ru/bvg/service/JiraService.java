@@ -2,18 +2,15 @@ package ru.bvg.service;
 
 
 import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import ru.bvg.model.JiraIssueResponse;
 
 import java.nio.charset.Charset;
-import java.util.Map;
 
 @Service
 public class JiraService {
