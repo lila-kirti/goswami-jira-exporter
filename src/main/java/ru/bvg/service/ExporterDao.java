@@ -21,7 +21,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 @Service
-class ExporterDao {
+public class ExporterDao {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
@@ -29,7 +29,7 @@ class ExporterDao {
     private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
     @Transactional
-    Integer savePlace(String name) {
+    public Integer savePlace(String name) {
         List<Integer> ids = jdbcTemplate.query("select id from location where lower(name)=?", new Object[]{name.toLowerCase()},
                 new SingleColumnRowMapper<Integer>());
         if (ids.isEmpty()) {
@@ -39,7 +39,7 @@ class ExporterDao {
     }
 
     @Transactional
-    List<Integer> saveLabels(List<String> tags) {
+    public List<Integer> saveLabels(List<String> tags) {
         List<Integer> result = new ArrayList<>();
         Map<String, Object> params = new HashMap<>();
         params.put("tags", tags);
@@ -85,7 +85,7 @@ class ExporterDao {
     }
 
     @Transactional
-    void saveMedia(Media media) {
+    public void saveMedia(Media media) {
         KeyHolder mediaKeyHolder = new GeneratedKeyHolder();
         jdbcTemplate.update(
                 connection -> {

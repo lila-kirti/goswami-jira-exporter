@@ -20,14 +20,14 @@ public class ExporterService {
     private JiraService jiraService;
 
     @Autowired
-    private ExporterDao dao;
+    private ExporterDao exporterDao;
 
     @Autowired
     private ExporterService self;
 
     @Transactional(propagation = Propagation.NOT_SUPPORTED)
     public void export() {
-        JiraIssueResponse response = jiraService.getIssues(4500, 50);
+        JiraIssueResponse response = jiraService.getIssues(0, 50);
         int offset = 0;
         for (int i = 0; i < response.getTotal(); i = i + MAX_SIZE) {
             offset += MAX_SIZE;
@@ -43,15 +43,15 @@ public class ExporterService {
             Media media = mediaMapper.map(jiraIssue);
             //место
             if (jiraIssue.getFields().getPlace() != null) {
-                Integer placeId = dao.savePlace(jiraIssue.getFields().getPlace());
+                Integer placeId = exporterDao.savePlace(jiraIssue.getFields().getPlace());
                 media.setPlaceId(placeId);
             }
             //метки
             if (!CollectionUtils.isEmpty(jiraIssue.getFields().getLabels())){
-                List<Integer> labels = dao.saveLabels(jiraIssue.getFields().getLabels());
+                List<Integer> labels = exporterDao.saveLabels(jiraIssue.getFields().getLabels());
                 media.setTags(labels);
             }
-            dao.saveMedia(media);
+            exporterDao.saveMedia(media);
         }
 
     }

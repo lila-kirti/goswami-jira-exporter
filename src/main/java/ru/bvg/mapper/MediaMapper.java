@@ -45,7 +45,7 @@ public class MediaMapper {
             }
             media.setScripture(Collections.singletonList(new Media.Scripture(scriptureEnum.getId())));
             //глава/стих
-            if (StringUtils.isEmpty(jiraFields.getScriptureVerse())) {
+            if (!StringUtils.isEmpty(jiraFields.getScriptureVerse())) {
                 try {
                     media.setScripture(ScriptureParser.parse(scriptureEnum, jiraFields.getScriptureVerse()));
                 } catch (RuntimeException e) {
@@ -59,12 +59,10 @@ public class MediaMapper {
             }
         }
         //язык
-        if (jiraFields.getLanguage() != null) {
-            if (jiraFields.getLanguage().getValue().equals("Русский"))
-                media.setLanguage("RUS");
-            else if (jiraFields.getLanguage().getValue().equals("English"))
-                media.setLanguage("ENG");
-        }
+        if (jiraFields.getLanguage() == null || jiraFields.getLanguage().getValue().equals("Русский"))
+            media.setLanguage("RUS");
+        else if (jiraFields.getLanguage().getValue().equals("English"))
+            media.setLanguage("ENG");
         media.setFileName(jiraFields.getFileName());
         media.setVideo(jiraFields.getVideo());
         return media;

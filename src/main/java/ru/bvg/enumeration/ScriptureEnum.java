@@ -12,7 +12,7 @@ public enum ScriptureEnum {
     NECTAR_OF_DEVOTION("нектар преданности", 4),
     NECTAR_OF_INSTRUCTION("нектар наставлений", 5),
     ISOPANISHAD("шри ишопанишад", 6),
-    MADHURYA_KADAMBINI("мадхурья-кадмбини", 7),
+    MADHURYA_KADAMBINI("мадхурья-кадамбини", 7),
     RAMAYANA("рамаяна", 8);
 
     private String jiraName;

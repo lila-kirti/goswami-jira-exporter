@@ -10,6 +10,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.transaction.PlatformTransactionManager;
+import ru.bvg.service.ExporterDao;
 
 import javax.sql.DataSource;
 
@@ -21,7 +23,8 @@ public class ApplicationConfig {
     @Autowired
     private Environment env;
 
-    @Bean
+
+    @Bean(name = "dataSource")
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName(env.getRequiredProperty("jdbc.driver"));
@@ -39,13 +42,8 @@ public class ApplicationConfig {
     }
 
     @Bean
-    public DataSourceTransactionManager transactionManager() {
-        final DataSourceTransactionManager transactionManager = new DataSourceTransactionManager(dataSource());
-        return transactionManager;
-    }
-
-    @Bean
     public NamedParameterJdbcTemplate namedParameterJdbcTemplate(DataSource dataSource) {
         return new NamedParameterJdbcTemplate(dataSource);
     }
+
 }
