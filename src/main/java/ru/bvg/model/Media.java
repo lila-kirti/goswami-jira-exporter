@@ -18,13 +18,14 @@ public class Media {
     private Date lectureDate;
     private Date issueDate;
     private String duration;
-    private String size;
+    private Integer size;
     private Integer categoryId;
+    private String imgUrl;
     private List<Scripture> scripture;
     private String language;
     private Integer placeId;
     private String fileName;
-    private List<Integer> labels;
+    private List<Integer> tags;
     private String video;
 
     public Media(String jiraKey) {

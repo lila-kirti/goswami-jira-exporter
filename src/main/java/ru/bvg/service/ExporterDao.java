@@ -8,10 +8,12 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.CollectionUtils;
 import ru.bvg.model.Media;
 import ru.bvg.model.Refbook;
 
 import java.sql.PreparedStatement;
+import java.sql.Types;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -82,8 +84,55 @@ class ExporterDao {
         return tagsetKeyHolder.getKey().intValue();
     }
 
-    public void saveMedia(List<Media> media){
-
+    @Transactional
+    void saveMedia(Media media) {
+        KeyHolder mediaKeyHolder = new GeneratedKeyHolder();
+        jdbcTemplate.update(
+                connection -> {
+                    PreparedStatement ps = connection.prepareStatement(
+                            "insert into media (type, title, teaser, jira_ref, text, occurrence_date, issue_date, category_id, img_url, file_url, location_id, duration, size, language) " +
+                                    "values ('audio',?,?,?,?,?,?,?,?,?,?,?::interval,?,?::lang)",
+                            new String[]{"id"});
+                    ps.setString(1, media.getTitle());
+                    ps.setString(2, media.getTeaser());
+                    ps.setString(3, media.getJiraKey());
+                    ps.setString(4, media.getText());
+                    ps.setDate(5, new java.sql.Date(media.getLectureDate().getTime()));
+                    ps.setDate(6, new java.sql.Date(media.getIssueDate().getTime()));
+                    if (media.getCategoryId() != null)
+                        ps.setInt(7, media.getCategoryId());
+                    else
+                        ps.setNull(7, Types.INTEGER);
+                    ps.setString(8, media.getImgUrl());
+                    ps.setString(9, media.getFileName());
+                    if (media.getPlaceId() != null)
+                        ps.setInt(10, media.getPlaceId());
+                    else
+                        ps.setNull(10, Types.INTEGER);
+                    ps.setString(11, media.getDuration());
+                    if (media.getSize() != null)
+                        ps.setInt(12, media.getSize());
+                    else
+                        ps.setNull(12, Types.INTEGER);
+                    ps.setString(13, media.getLanguage());
+                    return ps;
+                },
+                mediaKeyHolder);
+        Integer mediaId = (Integer) mediaKeyHolder.getKey();
+        if (!CollectionUtils.isEmpty(media.getScripture())) {
+            for (Media.Scripture scripture : media.getScripture()) {
+                jdbcTemplate.update("insert into media_scripture (media_id, scripture_id, canto, chapter, verse) values (?, ?, ?, ?, ?)",
+                        mediaId, scripture.getId(), scripture.getCanto(), scripture.getChapter(), scripture.getVerse());
+            }
+        }
+        if (!CollectionUtils.isEmpty(media.getTags())) {
+            for (Integer tag : media.getTags()) {
+                jdbcTemplate.update("insert into media_tag (media_id, tag_id) values (?, ?)", mediaId, tag);
+            }
+        }
+        if (media.getVideo() != null) {
+            jdbcTemplate.update("insert into media_data (media_id, data_type, value) values (?, 'video', ?)", mediaId, media.getVideo());
+        }
     }
 
     private String capitalizeFirstLetter(String string) {

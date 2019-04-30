@@ -30,6 +30,7 @@ COMMENT ON TABLE category IS 'Священные писания';
 CREATE TYPE public.media_type AS ENUM ( 'audio', 'book', 'article');
 CREATE TYPE public.collection_source AS ENUM ( 'lecture', 'collection', 'filter');
 CREATE TYPE public.lang AS ENUM ( 'RUS', 'ENG');
+CREATE TYPE public.media_data_type AS ENUM ( 'video', 'image');
 
 CREATE TABLE IF NOT EXISTS media (
     id               serial PRIMARY KEY,
@@ -52,7 +53,7 @@ CREATE TABLE IF NOT EXISTS media (
 );
 COMMENT ON TABLE media IS 'Лекция, книга, статья';
 
-CREATE TABLE IF NOT EXISTS scripture_media
+CREATE TABLE IF NOT EXISTS media_scripture
 (
     id               serial PRIMARY KEY,
     media_id         integer not null references media(id) on delete cascade,
@@ -61,7 +62,7 @@ CREATE TABLE IF NOT EXISTS scripture_media
     chapter          integer, -- глава
     verse            integer -- стих   
 );
-COMMENT ON TABLE scripture_media IS 'Песнь/глава/стих священных писаний, объясненные в лекции';
+COMMENT ON TABLE media_scripture IS 'Песнь/глава/стих священных писаний, объясненные в лекции';
 
 COMMENT ON TABLE category IS 'Священные писания';
 
@@ -76,7 +77,7 @@ CREATE TABLE media_data
 (
     id                serial PRIMARY KEY,
     media_id          integer references media(id) on delete cascade,
-    data_type         character varying(128),
+    data_type         media_data_type,
     value             text
 );
 COMMENT ON TABLE media_data IS 'Дополнительные атрибуты объекта';
@@ -214,3 +215,36 @@ CREATE TABLE vacancy (
     CONSTRAINT vacancy_pkey PRIMARY KEY(id)
 );
 COMMENT ON TABLE vacancy IS 'Вакансии';
+
+
+CREATE INDEX collection_hierarchy_parent_idx ON collection_hierarchy(parent_id);
+CREATE INDEX collection_hierarchy_children_idx ON collection_hierarchy(children_id);
+ALTER TABLE collection_hierarchy ADD CONSTRAINT parent_children_pk PRIMARY KEY (parent_id, children_id);
+
+CREATE INDEX media_scripture_media_idx ON media_scripture(media_id);
+CREATE INDEX media_scripture_scripture_idx ON media_scripture(scripture_id);
+CREATE INDEX media_scripture_canto_idx ON media_scripture(canto);
+CREATE INDEX media_scripture_chapter_idx ON media_scripture(chapter);
+CREATE INDEX media_scripture_verse_idx ON media_scripture(verse);
+ALTER TABLE media_scripture ADD CONSTRAINT media_scripture_unq UNIQUE (media_id, scripture_id, canto, chapter, verse);
+
+CREATE INDEX collection_media_collection_idx ON collection_media(collection_id);
+CREATE INDEX collection_media_media_idx ON collection_media(media_id);
+ALTER TABLE collection_media ADD CONSTRAINT collection_media_pk PRIMARY KEY (collection_id, media_id);
+
+CREATE INDEX media_data_media_idx ON media_data(media_id);
+
+CREATE INDEX media_tag_tag_idx ON media_tag(tag_id);
+CREATE INDEX media_tag_media_idx ON media_tag(media_id);
+ALTER TABLE media_tag ADD CONSTRAINT media_tag_pk PRIMARY KEY (media_id, tag_id);
+
+CREATE INDEX tag_name_idx ON tag(name);
+
+CREATE INDEX media_type_idx ON media(type);
+CREATE INDEX media_title_idx ON media(title);
+CREATE INDEX media_jiraref_idx ON media(jira_ref);
+CREATE INDEX media_occurrence_date_idx ON media(occurrence_date);
+CREATE INDEX media_issue_date_idx ON media(issue_date);
+CREATE INDEX media_category_idx ON media(category_id);
+CREATE INDEX media_location_idx ON media(location_id);
+CREATE INDEX media_language_idx ON media(language);

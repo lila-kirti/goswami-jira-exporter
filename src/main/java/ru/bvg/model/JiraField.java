@@ -26,7 +26,7 @@ public class JiraField implements Serializable {
     private String duration;
 
     @JsonProperty("customfield_10513")
-    private String size;
+    private Integer size;
 
     @JsonProperty("customfield_10055")
     private Option category;

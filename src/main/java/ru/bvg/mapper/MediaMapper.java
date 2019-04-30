@@ -28,6 +28,7 @@ public class MediaMapper {
         media.setIssueDate(new Date());
         media.setDuration(jiraFields.getDuration());
         media.setSize(jiraFields.getSize());
+        media.setImgUrl("lecture.jpg");
 
         //категория
         if (jiraFields.getCategory() != null) {
