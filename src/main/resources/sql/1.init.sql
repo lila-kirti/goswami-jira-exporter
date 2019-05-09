@@ -31,6 +31,8 @@ CREATE TYPE public.media_type AS ENUM ( 'audio', 'book', 'article');
 CREATE TYPE public.collection_source AS ENUM ( 'lecture', 'collection', 'filter');
 CREATE TYPE public.lang AS ENUM ( 'RUS', 'ENG');
 CREATE TYPE public.media_data_type AS ENUM ( 'video', 'image');
+CREATE TYPE public.orderby AS ENUM ( 'verse', 'date');
+CREATE TYPE public.direction AS ENUM ( 'ASC', 'DESC');
 
 CREATE TABLE IF NOT EXISTS media (
     id               serial PRIMARY KEY,
@@ -115,9 +117,10 @@ CREATE TABLE IF NOT EXISTS collection
     chapter          integer,
     verse            integer,
     date_from        date,
-    date_to        date,
-    "language"       lang
-	
+    date_to          date,
+    "language"       lang,
+    order_by         orderby,
+	  direction        direction
 );
 COMMENT ON TABLE collection IS 'Подборки';
 
