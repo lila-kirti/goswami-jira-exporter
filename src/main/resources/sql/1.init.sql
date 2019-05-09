@@ -146,6 +146,15 @@ CREATE INDEX collection_media_collection_idx ON collection_media(collection_id);
 CREATE INDEX collection_media_media_idx ON collection_media(media_id);
 ALTER TABLE collection_media ADD CONSTRAINT collection_media_pk PRIMARY KEY (collection_id, media_id);
 
+CREATE TABLE IF NOT EXISTS collection_filter_tag
+(
+    collection_id   integer not null references collection(id) on delete cascade,
+    tag_id          integer not null references tag(id) on delete cascade
+);
+COMMENT ON TABLE collection IS 'Фильтрация подборки по тэгам';
+CREATE INDEX collection_filter_tag_collection_idx ON collection_filter_tag(collection_id);
+CREATE INDEX collection_filter_tag_tag_idx ON collection_filter_tag(tag_id);
+
 CREATE TABLE IF NOT EXISTS "user"
 (
     id               serial PRIMARY KEY,
