@@ -41,15 +41,15 @@ public class ExporterDao {
     @Transactional
     public List<Integer> saveLabels(List<String> tags) {
         List<Integer> result = new ArrayList<>();
+        List<String> newTags = tags.stream().map(t->t.replaceAll("_", " ")).collect(Collectors.toList());
         Map<String, Object> params = new HashMap<>();
-        params.put("tags", tags);
+        params.put("tags", newTags);
         List<Refbook> existingTags = namedParameterJdbcTemplate.query("select id, name from tag where lower(name) in (:tags)",
                 params,
                 (resultSet, i) -> {
                     return new Refbook(resultSet.getInt(1), resultSet.getString(2));
                 });
         result.addAll(existingTags.stream().map(Refbook::getId).collect(Collectors.toList()));
-        List<String> newTags = new ArrayList<>(tags);
         newTags.removeAll(existingTags.stream().map(Refbook::getName).collect(Collectors.toList()));
         for (String newTag : newTags) {
             result.add(insertRefbook("tag", null, newTag));
