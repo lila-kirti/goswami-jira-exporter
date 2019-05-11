@@ -1,26 +1,32 @@
 package ru.bvg.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
 @Getter
 @Setter
-public class Media {
+@JsonIgnoreProperties(ignoreUnknown = true)
+@AllArgsConstructor
+@NoArgsConstructor
+public class Media  implements Serializable {
     private String jiraKey;
     private String type;
     private String title;
     private String teaser;
     private String text;
-    private Date lectureDate;
+    private Date date;
     private Date issueDate;
     private String duration;
     private Integer size;
     private Integer categoryId;
-    private String imgUrl;
+    private String imgUri;
     private List<Scripture> scripture;
     private String language;
     private Integer placeId;

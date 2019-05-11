@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
 import ru.bvg.enumeration.CategoryEnum;
 import ru.bvg.enumeration.ScriptureEnum;
+import ru.bvg.model.BookArticle;
 import ru.bvg.model.JiraField;
 import ru.bvg.model.JiraIssue;
 import ru.bvg.model.Media;
@@ -21,14 +22,15 @@ public class MediaMapper {
     public Media map(JiraIssue jiraIssue) {
         JiraField jiraFields = jiraIssue.getFields();
         Media media = new Media(jiraIssue.getKey());
+        media.setType("audio");
         media.setTitle(StringUtils.isEmpty(jiraFields.getPrettyName()) ? jiraFields.getName() : jiraFields.getPrettyName());
         media.setTeaser(jiraFields.getDescription());
         media.setText(jiraFields.getText());
-        media.setLectureDate(jiraFields.getLectureDate());
+        media.setDate(jiraFields.getLectureDate());
         media.setIssueDate(new Date());
         media.setDuration(jiraFields.getDuration());
         media.setSize(jiraFields.getSize());
-        media.setImgUrl("lecture.jpg");
+        media.setImgUri("lecture.jpg");
 
         //категория
         if (jiraFields.getCategory() != null) {
@@ -65,6 +67,27 @@ public class MediaMapper {
             media.setLanguage("ENG");
         media.setFileName(jiraFields.getFileName());
         media.setVideo(jiraFields.getVideo());
+        return media;
+    }
+
+    public Media mapBook(BookArticle bookArticle) {
+        return mapBookArticle(bookArticle, "book");
+    }
+
+    public Media mapArticle(BookArticle bookArticle) {
+        return mapBookArticle(bookArticle, "article");
+    }
+
+    private Media mapBookArticle(BookArticle bookArticle, String type) {
+        Media media = new Media();
+        media.setType(type);
+        media.setTitle(bookArticle.getTitle());
+        media.setText(bookArticle.getText());
+        media.setTeaser(bookArticle.getTeaser());
+        media.setDate(bookArticle.getDate());
+        media.setIssueDate(new Date());
+        media.setImgUri(bookArticle.getImgUri());
+        media.setLanguage("RUS");
         return media;
     }
 }

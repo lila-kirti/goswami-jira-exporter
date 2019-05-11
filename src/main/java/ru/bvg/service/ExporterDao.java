@@ -90,20 +90,20 @@ public class ExporterDao {
         jdbcTemplate.update(
                 connection -> {
                     PreparedStatement ps = connection.prepareStatement(
-                            "insert into media (type, title, teaser, jira_ref, text, occurrence_date, issue_date, category_id, img_url, file_url, location_id, duration, size, language) " +
-                                    "values ('audio',?,?,?,?,?,?,?,?,?,?,?::interval,?,?::lang)",
+                            "insert into media (title, teaser, jira_ref, text, occurrence_date, issue_date, category_id, img_url, file_url, location_id, duration, size, language, type) " +
+                                    "values (?,?,?,?,?,?,?,?,?,?,?::interval,?,?::lang,?::media_type)",
                             new String[]{"id"});
                     ps.setString(1, media.getTitle());
                     ps.setString(2, media.getTeaser());
                     ps.setString(3, media.getJiraKey());
                     ps.setString(4, media.getText());
-                    ps.setDate(5, new java.sql.Date(media.getLectureDate().getTime()));
+                    ps.setDate(5, new java.sql.Date(media.getDate().getTime()));
                     ps.setDate(6, new java.sql.Date(media.getIssueDate().getTime()));
                     if (media.getCategoryId() != null)
                         ps.setInt(7, media.getCategoryId());
                     else
                         ps.setNull(7, Types.INTEGER);
-                    ps.setString(8, media.getImgUrl());
+                    ps.setString(8, media.getImgUri());
                     ps.setString(9, media.getFileName());
                     if (media.getPlaceId() != null)
                         ps.setInt(10, media.getPlaceId());
@@ -115,6 +115,7 @@ public class ExporterDao {
                     else
                         ps.setNull(12, Types.INTEGER);
                     ps.setString(13, media.getLanguage());
+                    ps.setString(14, media.getType());
                     return ps;
                 },
                 mediaKeyHolder);

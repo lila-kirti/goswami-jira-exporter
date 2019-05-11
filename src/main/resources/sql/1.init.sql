@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS media (
     issue_date       timestamp, -- дата публикации
     category_id      integer references category(id), 
     img_url          text not null,   -- ссылка на картинку
-    file_url         text not null,   -- ссылка на файл лекции
+    file_url         text,   -- ссылка на файл лекции
     alias_url        text,   -- красивая ссылка
     location_id      integer references location(id),
     visible          boolean DEFAULT true,
