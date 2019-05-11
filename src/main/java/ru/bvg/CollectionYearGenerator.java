@@ -8,6 +8,9 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Генератор sql скриптов для подборки "По годам"
+ */
 public class CollectionYearGenerator {
 
     public static void main(String[] args) {

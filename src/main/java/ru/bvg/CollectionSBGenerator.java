@@ -6,7 +6,10 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-public class SrimadBhagavatamGenerator {
+/**
+ * Генератор sql скриптов для подборки "По священным писания" -> "Шримад Бхагаватам"
+ */
+public class CollectionSBGenerator {
 
     public static void main(String[] args) {
         Path path = Paths.get("G:/javaProjects/sb.sql");

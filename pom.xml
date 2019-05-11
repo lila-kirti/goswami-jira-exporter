@@ -19,6 +19,7 @@
         <lombok.version>1.16.18</lombok.version>
         <logback.version>1.2.3</logback.version>
         <logback.encoder.version>4.9</logback.encoder.version>
+        <poi.version>3.17</poi.version>
         <junit.version>4.12</junit.version>
     </properties>
 
@@ -104,6 +105,18 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>${poi.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.monitorjbl</groupId>
+            <artifactId>xlsx-streamer</artifactId>
+            <version>1.2.1</version>
         </dependency>
 
         <dependency>
