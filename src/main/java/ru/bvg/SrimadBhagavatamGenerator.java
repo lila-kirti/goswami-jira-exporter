@@ -56,15 +56,15 @@ public class SrimadBhagavatamGenerator {
     }
 
     private static String generateCollectionSeminar() {
-        return "INSERT INTO collection (short_name, full_name, source, img_url)  VALUES ('Семинары','Семинары по Шримад-Бхагаватам', 'collection', 'sb-seminar.jpg');";
+        return "INSERT INTO collection (short_name, full_name, source, img_url)  VALUES ('Семинары','Семинары по Шримад-Бхагаватам', 'collection', 'collection/sb-seminar.jpg');";
     }
 
     private static String generateCollectionCanto(int canto) {
-        return String.format("INSERT INTO collection (short_name, full_name, source, img_url)  VALUES ('Песнь %d', 'Шримад-Бхагаватам. Песнь %d', 'collection', 'sb%d.jpg');", canto, canto, canto);
+        return String.format("INSERT INTO collection (short_name, full_name, source, img_url)  VALUES ('Песнь %d', 'Шримад-Бхагаватам. Песнь %d', 'collection', 'collection/sb%d.jpg');", canto, canto, canto);
     }
 
     private static String generateCollectionChapter(int canto, int chapter) {
-        return String.format("INSERT INTO collection (short_name, full_name, source, img_url, canto, chapter, order_by, direction)  VALUES ('Глава %d', 'Шримад-Бхагаватам. Песнь %d. Глава %d', 'filter', 'sb%d_%d.jpg', %d, %d, 'verse', 'ASC');",
+        return String.format("INSERT INTO collection (short_name, full_name, source, img_url, canto, chapter, order_by, direction)  VALUES ('Глава %d', 'Шримад-Бхагаватам. Песнь %d. Глава %d', 'filter', 'collection/sb%d_%d.jpg', %d, %d, 'verse', 'ASC');",
                 chapter, canto, chapter, canto, chapter, canto, chapter);
     }
 
