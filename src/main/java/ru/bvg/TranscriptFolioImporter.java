@@ -4,12 +4,15 @@ package ru.bvg;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 import ru.bvg.config.ApplicationConfig;
-import ru.bvg.service.ImporterService;
+import ru.bvg.service.FolioService;
 
-public class BooksAndArticleExporter {
-    public static void main(String[] args) {
+public class TranscriptFolioImporter {
+
+    public static void main(String[] args) throws Exception {
         AbstractApplicationContext context = new AnnotationConfigApplicationContext(ApplicationConfig.class);
-        ImporterService service = (ImporterService) context.getBean("exporterService");
-        service.importBooksAndArticles();
+        FolioService service = (FolioService) context.getBean("folioService");
+        service.importTranscripts();
+
     }
 }
+

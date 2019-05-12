@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 import ru.bvg.model.Media;
 import ru.bvg.model.Refbook;
+import ru.bvg.model.Transcript;
 
 import java.sql.PreparedStatement;
 import java.sql.Types;
@@ -21,7 +22,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 @Service
-public class ExporterDao {
+public class ImporterDao {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
@@ -134,6 +135,10 @@ public class ExporterDao {
         if (media.getVideo() != null) {
             jdbcTemplate.update("insert into media_data (media_id, data_type, value) values (?, 'video', ?)", mediaId, media.getVideo());
         }
+    }
+
+    public void saveTranscript(Transcript transcript){
+        jdbcTemplate.update("insert into transcript (publish, html) values (?, ?)", transcript.getDate(), transcript.getText());
     }
 
     private String capitalizeFirstLetter(String string) {

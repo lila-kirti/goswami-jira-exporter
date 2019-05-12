@@ -8,7 +8,9 @@ import org.springframework.util.ResourceUtils;
 import org.springframework.util.StringUtils;
 import ru.bvg.model.Collection;
 
-import java.io.*;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
