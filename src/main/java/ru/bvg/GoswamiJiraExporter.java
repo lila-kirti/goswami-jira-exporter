@@ -9,7 +9,7 @@ public class GoswamiJiraExporter {
 
     public static void main(String[] args) {
         AbstractApplicationContext context = new AnnotationConfigApplicationContext(ApplicationConfig.class);
-        ImporterService service = (ImporterService) context.getBean("exporterService");
+        ImporterService service = (ImporterService) context.getBean("importerService");
         service.importFromJira();
     }
 }
