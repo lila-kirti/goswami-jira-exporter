@@ -11,6 +11,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import ru.bvg.model.JiraIssue;
+import ru.bvg.model.JiraIssueResponse;
 import ru.bvg.model.Transcript;
 
 import java.io.IOException;
@@ -18,25 +20,38 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class FolioService {
     private static final Logger logger = LoggerFactory.getLogger(FolioService.class);
-    private static final String[] PREFIX = new String[]{"<p><strong>Аннотация", "<p style=\"text-align: justify;\"><strong>Аннотация"};
+    private static final String[] PREFIX = new String[]{"<p><strong>Аннотация", "<p style=\"html-align: justify;\"><strong>Аннотация"};
 
 
     @Value("${folio.rss}")
     private String folioRss;
 
     @Autowired
-    private ImporterDao importerDao;
+    private ImporterDao dao;
+    @Autowired
+    private JiraService jiraService;
+
+    public void findJiraRef() {
+        List<Transcript> list = dao.getTranscripts();
+        for (Transcript transcript : list) {
+            JiraIssueResponse issues = jiraService.getByDate(transcript.getPublish());
+            if (!issues.getIssues().isEmpty()) {
+                dao.saveTranscriptJiraRef(transcript.getId(), issues.getIssues().stream().map(JiraIssue::getKey).collect(Collectors.toList()));
+            }
+        }
+    }
 
     public void importTranscripts() {
         for (int i = 1; i <= 126; i++) {
             try {
                 List<Transcript> list = getFeed(i);
                 for (Transcript transcript : list) {
-                    importerDao.saveTranscript(transcript);
+                    dao.saveTranscript(transcript);
                 }
             } catch (IOException | FeedException e) {
                 logger.error("Error on page " + i, e);

@@ -42,7 +42,7 @@ public class ImporterDao {
     @Transactional
     public List<Integer> saveLabels(List<String> tags) {
         List<Integer> result = new ArrayList<>();
-        List<String> newTags = tags.stream().map(t->t.replaceAll("_", " ")).collect(Collectors.toList());
+        List<String> newTags = tags.stream().map(t -> t.replaceAll("_", " ")).collect(Collectors.toList());
         Map<String, Object> params = new HashMap<>();
         params.put("tags", newTags);
         List<Refbook> existingTags = namedParameterJdbcTemplate.query("select id, name from tag where lower(name) in (:tags)",
@@ -137,8 +137,18 @@ public class ImporterDao {
         }
     }
 
-    public void saveTranscript(Transcript transcript){
-        jdbcTemplate.update("insert into transcript (publish, html) values (?, ?)", transcript.getDate(), transcript.getText());
+    public void saveTranscript(Transcript transcript) {
+        jdbcTemplate.update("insert into transcript (publish, html) values (?, ?)", transcript.getPublish(), transcript.getHtml());
+    }
+
+    public void saveTranscriptJiraRef(Integer id, List<String> jiraKeys) {
+        jdbcTemplate.update("update transcript set jira_ref=? where id=?", String.join(",", jiraKeys), id);
+    }
+
+    public List<Transcript> getTranscripts() {
+        return jdbcTemplate.query("select id, publish, html from transcript", (resultSet, i) -> {
+            return new Transcript(resultSet.getInt(1), resultSet.getDate(2), resultSet.getString(3));
+        });
     }
 
     private String capitalizeFirstLetter(String string) {
