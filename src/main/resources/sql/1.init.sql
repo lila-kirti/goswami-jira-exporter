@@ -88,7 +88,6 @@ CREATE TABLE IF NOT EXISTS media_tag (
     tag_id           integer not null references tag(id) on delete cascade
 );
 COMMENT ON TABLE media_tag IS 'Связка лекции и ключевых слов';
-CREATE INDEX media_data_media_idx ON media_data(media_id);
 CREATE INDEX media_tag_tag_idx ON media_tag(tag_id);
 CREATE INDEX media_tag_media_idx ON media_tag(media_id);
 ALTER TABLE media_tag ADD CONSTRAINT media_tag_pk PRIMARY KEY (media_id, tag_id);
@@ -101,14 +100,14 @@ CREATE TABLE media_data
     value             text
 );
 COMMENT ON TABLE media_data IS 'Дополнительные атрибуты объекта';
-
+CREATE INDEX media_data_media_idx ON media_data(media_id);
 
 CREATE TABLE IF NOT EXISTS collection
 (
     id               serial PRIMARY KEY,
     short_name             character varying(255) not null,
     full_name             character varying(255),
-    annotation       text, 
+    annotation       text,
     source           collection_source,
     img_url          text not null,
     category_id      integer,

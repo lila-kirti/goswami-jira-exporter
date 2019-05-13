@@ -11,7 +11,7 @@ public class TranscriptFolioImporter {
     public static void main(String[] args) throws Exception {
         AbstractApplicationContext context = new AnnotationConfigApplicationContext(ApplicationConfig.class);
         FolioService service = (FolioService) context.getBean("folioService");
-        service.importTranscripts();
+        service.findJiraRef();
 
     }
 }

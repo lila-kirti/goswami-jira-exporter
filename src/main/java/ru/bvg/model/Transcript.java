@@ -10,6 +10,12 @@ import java.util.Date;
 @Setter
 @AllArgsConstructor
 public class Transcript {
-    private Date date;
-    private String text;
+    private Integer id;
+    private Date publish;
+    private String html;
+
+    public Transcript(Date date, String html) {
+        this.publish = date;
+        this.html = html;
+    }
 }

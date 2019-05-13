@@ -11,6 +11,8 @@ import org.springframework.web.client.RestTemplate;
 import ru.bvg.model.JiraIssueResponse;
 
 import java.nio.charset.Charset;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @Service
 public class JiraService {
@@ -34,6 +36,16 @@ public class JiraService {
                 new HttpEntity(createHeaders()), JiraIssueResponse.class).getBody();
 
 
+    }
+
+    public JiraIssueResponse getByDate(Date date) {
+        StringBuilder url = new StringBuilder(jiraUrl);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        url.append("/rest/api/2/search?")
+                .append("jql=type=\"Обработанная лекция\" and \"Дата лекции\"=")
+                .append(sdf.format(date));
+        return new RestTemplate().exchange(url.toString(), HttpMethod.GET,
+                new HttpEntity(createHeaders()), JiraIssueResponse.class).getBody();
     }
 
     HttpHeaders createHeaders() {
