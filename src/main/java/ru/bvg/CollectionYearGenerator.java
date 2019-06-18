@@ -14,7 +14,7 @@ import java.util.List;
 public class CollectionYearGenerator {
 
     public static void main(String[] args) {
-        Path path = Paths.get("G:/javaProjects/collection_year.sql");
+        Path path = Paths.get("D:/collection_year.sql");
 
         try (BufferedWriter writer = Files.newBufferedWriter(path)) {
             writer.write(generateCollectionYearMain());
@@ -77,12 +77,12 @@ public class CollectionYearGenerator {
         List<String> folders = new ArrayList<>();
         folders.add(String.format("INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, order_by, direction)  VALUES ('Все', '%d. Все лекции', 'filter', 'collection/all.jpg', '%d-01-01', '%d-12-31', 'date', 'ASC');", year, year, year));
         folders.add(String.format("INSERT INTO collection (short_name, full_name, source, img_url)  VALUES ('Семинары', '%d. Семинары', 'collection', 'collection/seminar.jpg');", year));
-        folders.add(String.format("INSERT INTO collection (short_name, full_name, source, img_url)  VALUES ('Парикрамы', '%d. Паломничества', 'collection', 'collection/parikram.jpg');", year));
-        folders.add(String.format("INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Обращения, встречи с учениками', '%d. Обращения, встречи с учениками', 'collection', 'collection/treatment.jpg', '%d-01-01', '%d-12-31', 5, 'date', 'ASC');", year, year, year));
+        folders.add(String.format("INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Паломничества', '%d. Паломничества', 'filter', 'collection/parikram.jpg'), '%d-01-01', '%d-12-31', 1, 'date', 'ASC');", year, year, year));
+        folders.add(String.format("INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Обращения, встречи с учениками', '%d. Обращения, встречи с учениками', 'filter', 'collection/treatment.jpg', '%d-01-01', '%d-12-31', 5, 'date', 'ASC');", year, year, year));
         folders.add(String.format("INSERT INTO collection_filter_tag (collection_id, tag_id)  VALUES ((select id from collection where full_name='%d. Обращения, встречи с учениками'), (select id from tag where name='встречи с учениками'));", year));
-        folders.add(String.format("INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Публичные лекции', '%d. Публичные лекции', 'collection', 'collection/public.jpg', '%d-01-01', '%d-12-31', 4, 'date', 'ASC');", year, year, year));
-        folders.add(String.format("INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Праздники', '%d. Лекции на праздниках', 'collection', 'collection/celebration.jpg', '%d-01-01', '%d-12-31', 2, 'date', 'ASC');", year, year, year));
-        folders.add(String.format("INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Инициация', '%d. Лекции на церемонии посвящения', 'collection', 'collection/initiation.jpg', '%d-01-01', '%d-12-31', 7, 'date', 'ASC');", year, year, year));
+        folders.add(String.format("INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Публичные лекции', '%d. Публичные лекции', 'filter', 'collection/public.jpg', '%d-01-01', '%d-12-31', 4, 'date', 'ASC');", year, year, year));
+        folders.add(String.format("INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Праздники', '%d. Лекции на праздниках', 'filter', 'collection/celebration.jpg', '%d-01-01', '%d-12-31', 2, 'date', 'ASC');", year, year, year));
+        folders.add(String.format("INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Инициация', '%d. Лекции на церемонии посвящения', 'filter', 'collection/initiation.jpg', '%d-01-01', '%d-12-31', 7, 'date', 'ASC');", year, year, year));
         return folders;
     }
 }
