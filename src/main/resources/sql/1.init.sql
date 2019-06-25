@@ -37,7 +37,7 @@ CREATE TYPE public.direction AS ENUM ( 'ASC', 'DESC');
 CREATE TABLE IF NOT EXISTS media (
     id               serial PRIMARY KEY,
     type             media_type,
-    title            character varying(256) not null,
+    title            character varying(255) not null,
     teaser           text, -- аннотация
     jira_ref         character varying(128), -- ключ JIRA, если лекция/подборка была импортирована
     "text"           text, -- текст лекции
@@ -159,9 +159,10 @@ CREATE TABLE IF NOT EXISTS "user"
     id               serial PRIMARY KEY,
     email            varchar(255) NOT NULL,
     username         varchar(255) NOT NULL,
-    password         varchar(256) NOT NULL,
-    city             varchar(254),
+    password         varchar(255) NOT NULL,
+    city             varchar(255),
     birth_date       date,
+    img_url          varchar(255),
     email_subscriber boolean DEFAULT false,
     is_active        boolean DEFAULT TRUE,
     CONSTRAINT       user_email_key UNIQUE (email)
@@ -206,8 +207,8 @@ CREATE TABLE IF NOT EXISTS user_token
 (
     ID               serial PRIMARY KEY,
     user_id          integer NOT NULL,
-    user_agent       varchar(254) NOT NULL,
-    token            character varying(254) NOT NULL,
+    user_agent       varchar(255) NOT NULL,
+    token            character varying(255) NOT NULL,
     created          integer NOT NULL,
     expires          integer NOT NULL,
     CONSTRAINT       user_token_token_key UNIQUE (token),
@@ -217,9 +218,9 @@ CREATE TABLE IF NOT EXISTS user_token
 
 CREATE TABLE donation (
     id               serial PRIMARY KEY,
-    title            varchar(254) NOT NULL,
+    title            varchar(255) NOT NULL,
     description      text,
-    img_url          varchar(254),
+    img_url          varchar(255),
     amount           money,
     necessary_amount money,
     end_date         date,
@@ -230,9 +231,9 @@ COMMENT ON TABLE donation IS 'Пожертвования';
 
 CREATE TABLE vacancy (
     id            serial,
-    title         varchar(254) NOT NULL,
+    title         varchar(255) NOT NULL,
     description   text,
-    img_uri       varchar(254),
+    img_uri       varchar(255),
     CONSTRAINT vacancy_pkey PRIMARY KEY(id)
 );
 COMMENT ON TABLE vacancy IS 'Вакансии';
