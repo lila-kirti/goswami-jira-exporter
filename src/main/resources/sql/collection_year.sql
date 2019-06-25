@@ -61,7 +61,7 @@ INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((selec
 
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, order_by, direction)  VALUES ('Все', '2019. Все лекции', 'filter', 'collection/all.jpg', '2019-01-01', '2019-12-31', 'date', 'ASC');
 INSERT INTO collection (short_name, full_name, source, img_url)  VALUES ('Семинары', '2019. Семинары', 'collection', 'collection/seminar.jpg');
-INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Паломничества', '2019. Паломничества', 'filter', 'collection/parikram.jpg'), '2019-01-01', '2019-12-31', 1, 'date', 'ASC');
+INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Паломничества', '2019. Паломничества', 'filter', 'collection/parikram.jpg', '2019-01-01', '2019-12-31', 1, 'date', 'ASC');
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Обращения, встречи с учениками', '2019. Обращения, встречи с учениками', 'filter', 'collection/treatment.jpg', '2019-01-01', '2019-12-31', 5, 'date', 'ASC');
 INSERT INTO collection_filter_tag (collection_id, tag_id)  VALUES ((select id from collection where full_name='2019. Обращения, встречи с учениками'), (select id from tag where name='встречи с учениками'));
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Публичные лекции', '2019. Публичные лекции', 'filter', 'collection/public.jpg', '2019-01-01', '2019-12-31', 4, 'date', 'ASC');
@@ -76,7 +76,7 @@ INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((selec
 
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, order_by, direction)  VALUES ('Все', '2018. Все лекции', 'filter', 'collection/all.jpg', '2018-01-01', '2018-12-31', 'date', 'ASC');
 INSERT INTO collection (short_name, full_name, source, img_url)  VALUES ('Семинары', '2018. Семинары', 'collection', 'collection/seminar.jpg');
-INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Паломничества', '2018. Паломничества', 'filter', 'collection/parikram.jpg'), '2018-01-01', '2018-12-31', 1, 'date', 'ASC');
+INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Паломничества', '2018. Паломничества', 'filter', 'collection/parikram.jpg', '2018-01-01', '2018-12-31', 1, 'date', 'ASC');
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Обращения, встречи с учениками', '2018. Обращения, встречи с учениками', 'filter', 'collection/treatment.jpg', '2018-01-01', '2018-12-31', 5, 'date', 'ASC');
 INSERT INTO collection_filter_tag (collection_id, tag_id)  VALUES ((select id from collection where full_name='2018. Обращения, встречи с учениками'), (select id from tag where name='встречи с учениками'));
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Публичные лекции', '2018. Публичные лекции', 'filter', 'collection/public.jpg', '2018-01-01', '2018-12-31', 4, 'date', 'ASC');
@@ -91,7 +91,7 @@ INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((selec
 
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, order_by, direction)  VALUES ('Все', '2017. Все лекции', 'filter', 'collection/all.jpg', '2017-01-01', '2017-12-31', 'date', 'ASC');
 INSERT INTO collection (short_name, full_name, source, img_url)  VALUES ('Семинары', '2017. Семинары', 'collection', 'collection/seminar.jpg');
-INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Паломничества', '2017. Паломничества', 'filter', 'collection/parikram.jpg'), '2017-01-01', '2017-12-31', 1, 'date', 'ASC');
+INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Паломничества', '2017. Паломничества', 'filter', 'collection/parikram.jpg', '2017-01-01', '2017-12-31', 1, 'date', 'ASC');
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Обращения, встречи с учениками', '2017. Обращения, встречи с учениками', 'filter', 'collection/treatment.jpg', '2017-01-01', '2017-12-31', 5, 'date', 'ASC');
 INSERT INTO collection_filter_tag (collection_id, tag_id)  VALUES ((select id from collection where full_name='2017. Обращения, встречи с учениками'), (select id from tag where name='встречи с учениками'));
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Публичные лекции', '2017. Публичные лекции', 'filter', 'collection/public.jpg', '2017-01-01', '2017-12-31', 4, 'date', 'ASC');
@@ -106,7 +106,7 @@ INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((selec
 
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, order_by, direction)  VALUES ('Все', '2016. Все лекции', 'filter', 'collection/all.jpg', '2016-01-01', '2016-12-31', 'date', 'ASC');
 INSERT INTO collection (short_name, full_name, source, img_url)  VALUES ('Семинары', '2016. Семинары', 'collection', 'collection/seminar.jpg');
-INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Паломничества', '2016. Паломничества', 'filter', 'collection/parikram.jpg'), '2016-01-01', '2016-12-31', 1, 'date', 'ASC');
+INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Паломничества', '2016. Паломничества', 'filter', 'collection/parikram.jpg', '2016-01-01', '2016-12-31', 1, 'date', 'ASC');
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Обращения, встречи с учениками', '2016. Обращения, встречи с учениками', 'filter', 'collection/treatment.jpg', '2016-01-01', '2016-12-31', 5, 'date', 'ASC');
 INSERT INTO collection_filter_tag (collection_id, tag_id)  VALUES ((select id from collection where full_name='2016. Обращения, встречи с учениками'), (select id from tag where name='встречи с учениками'));
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Публичные лекции', '2016. Публичные лекции', 'filter', 'collection/public.jpg', '2016-01-01', '2016-12-31', 4, 'date', 'ASC');
@@ -121,7 +121,7 @@ INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((selec
 
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, order_by, direction)  VALUES ('Все', '2015. Все лекции', 'filter', 'collection/all.jpg', '2015-01-01', '2015-12-31', 'date', 'ASC');
 INSERT INTO collection (short_name, full_name, source, img_url)  VALUES ('Семинары', '2015. Семинары', 'collection', 'collection/seminar.jpg');
-INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Паломничества', '2015. Паломничества', 'filter', 'collection/parikram.jpg'), '2015-01-01', '2015-12-31', 1, 'date', 'ASC');
+INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Паломничества', '2015. Паломничества', 'filter', 'collection/parikram.jpg', '2015-01-01', '2015-12-31', 1, 'date', 'ASC');
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Обращения, встречи с учениками', '2015. Обращения, встречи с учениками', 'filter', 'collection/treatment.jpg', '2015-01-01', '2015-12-31', 5, 'date', 'ASC');
 INSERT INTO collection_filter_tag (collection_id, tag_id)  VALUES ((select id from collection where full_name='2015. Обращения, встречи с учениками'), (select id from tag where name='встречи с учениками'));
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Публичные лекции', '2015. Публичные лекции', 'filter', 'collection/public.jpg', '2015-01-01', '2015-12-31', 4, 'date', 'ASC');
@@ -136,7 +136,7 @@ INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((selec
 
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, order_by, direction)  VALUES ('Все', '2014. Все лекции', 'filter', 'collection/all.jpg', '2014-01-01', '2014-12-31', 'date', 'ASC');
 INSERT INTO collection (short_name, full_name, source, img_url)  VALUES ('Семинары', '2014. Семинары', 'collection', 'collection/seminar.jpg');
-INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Паломничества', '2014. Паломничества', 'filter', 'collection/parikram.jpg'), '2014-01-01', '2014-12-31', 1, 'date', 'ASC');
+INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Паломничества', '2014. Паломничества', 'filter', 'collection/parikram.jpg', '2014-01-01', '2014-12-31', 1, 'date', 'ASC');
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Обращения, встречи с учениками', '2014. Обращения, встречи с учениками', 'filter', 'collection/treatment.jpg', '2014-01-01', '2014-12-31', 5, 'date', 'ASC');
 INSERT INTO collection_filter_tag (collection_id, tag_id)  VALUES ((select id from collection where full_name='2014. Обращения, встречи с учениками'), (select id from tag where name='встречи с учениками'));
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Публичные лекции', '2014. Публичные лекции', 'filter', 'collection/public.jpg', '2014-01-01', '2014-12-31', 4, 'date', 'ASC');
@@ -151,7 +151,7 @@ INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((selec
 
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, order_by, direction)  VALUES ('Все', '2013. Все лекции', 'filter', 'collection/all.jpg', '2013-01-01', '2013-12-31', 'date', 'ASC');
 INSERT INTO collection (short_name, full_name, source, img_url)  VALUES ('Семинары', '2013. Семинары', 'collection', 'collection/seminar.jpg');
-INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Паломничества', '2013. Паломничества', 'filter', 'collection/parikram.jpg'), '2013-01-01', '2013-12-31', 1, 'date', 'ASC');
+INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Паломничества', '2013. Паломничества', 'filter', 'collection/parikram.jpg', '2013-01-01', '2013-12-31', 1, 'date', 'ASC');
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Обращения, встречи с учениками', '2013. Обращения, встречи с учениками', 'filter', 'collection/treatment.jpg', '2013-01-01', '2013-12-31', 5, 'date', 'ASC');
 INSERT INTO collection_filter_tag (collection_id, tag_id)  VALUES ((select id from collection where full_name='2013. Обращения, встречи с учениками'), (select id from tag where name='встречи с учениками'));
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Публичные лекции', '2013. Публичные лекции', 'filter', 'collection/public.jpg', '2013-01-01', '2013-12-31', 4, 'date', 'ASC');
@@ -166,7 +166,7 @@ INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((selec
 
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, order_by, direction)  VALUES ('Все', '2012. Все лекции', 'filter', 'collection/all.jpg', '2012-01-01', '2012-12-31', 'date', 'ASC');
 INSERT INTO collection (short_name, full_name, source, img_url)  VALUES ('Семинары', '2012. Семинары', 'collection', 'collection/seminar.jpg');
-INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Паломничества', '2012. Паломничества', 'filter', 'collection/parikram.jpg'), '2012-01-01', '2012-12-31', 1, 'date', 'ASC');
+INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Паломничества', '2012. Паломничества', 'filter', 'collection/parikram.jpg', '2012-01-01', '2012-12-31', 1, 'date', 'ASC');
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Обращения, встречи с учениками', '2012. Обращения, встречи с учениками', 'filter', 'collection/treatment.jpg', '2012-01-01', '2012-12-31', 5, 'date', 'ASC');
 INSERT INTO collection_filter_tag (collection_id, tag_id)  VALUES ((select id from collection where full_name='2012. Обращения, встречи с учениками'), (select id from tag where name='встречи с учениками'));
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Публичные лекции', '2012. Публичные лекции', 'filter', 'collection/public.jpg', '2012-01-01', '2012-12-31', 4, 'date', 'ASC');
@@ -181,7 +181,7 @@ INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((selec
 
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, order_by, direction)  VALUES ('Все', '2011. Все лекции', 'filter', 'collection/all.jpg', '2011-01-01', '2011-12-31', 'date', 'ASC');
 INSERT INTO collection (short_name, full_name, source, img_url)  VALUES ('Семинары', '2011. Семинары', 'collection', 'collection/seminar.jpg');
-INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Паломничества', '2011. Паломничества', 'filter', 'collection/parikram.jpg'), '2011-01-01', '2011-12-31', 1, 'date', 'ASC');
+INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Паломничества', '2011. Паломничества', 'filter', 'collection/parikram.jpg', '2011-01-01', '2011-12-31', 1, 'date', 'ASC');
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Обращения, встречи с учениками', '2011. Обращения, встречи с учениками', 'filter', 'collection/treatment.jpg', '2011-01-01', '2011-12-31', 5, 'date', 'ASC');
 INSERT INTO collection_filter_tag (collection_id, tag_id)  VALUES ((select id from collection where full_name='2011. Обращения, встречи с учениками'), (select id from tag where name='встречи с учениками'));
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Публичные лекции', '2011. Публичные лекции', 'filter', 'collection/public.jpg', '2011-01-01', '2011-12-31', 4, 'date', 'ASC');
@@ -196,7 +196,7 @@ INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((selec
 
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, order_by, direction)  VALUES ('Все', '2010. Все лекции', 'filter', 'collection/all.jpg', '2010-01-01', '2010-12-31', 'date', 'ASC');
 INSERT INTO collection (short_name, full_name, source, img_url)  VALUES ('Семинары', '2010. Семинары', 'collection', 'collection/seminar.jpg');
-INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Паломничества', '2010. Паломничества', 'filter', 'collection/parikram.jpg'), '2010-01-01', '2010-12-31', 1, 'date', 'ASC');
+INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Паломничества', '2010. Паломничества', 'filter', 'collection/parikram.jpg', '2010-01-01', '2010-12-31', 1, 'date', 'ASC');
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Обращения, встречи с учениками', '2010. Обращения, встречи с учениками', 'filter', 'collection/treatment.jpg', '2010-01-01', '2010-12-31', 5, 'date', 'ASC');
 INSERT INTO collection_filter_tag (collection_id, tag_id)  VALUES ((select id from collection where full_name='2010. Обращения, встречи с учениками'), (select id from tag where name='встречи с учениками'));
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Публичные лекции', '2010. Публичные лекции', 'filter', 'collection/public.jpg', '2010-01-01', '2010-12-31', 4, 'date', 'ASC');
@@ -211,7 +211,7 @@ INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((selec
 
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, order_by, direction)  VALUES ('Все', '2009. Все лекции', 'filter', 'collection/all.jpg', '2009-01-01', '2009-12-31', 'date', 'ASC');
 INSERT INTO collection (short_name, full_name, source, img_url)  VALUES ('Семинары', '2009. Семинары', 'collection', 'collection/seminar.jpg');
-INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Паломничества', '2009. Паломничества', 'filter', 'collection/parikram.jpg'), '2009-01-01', '2009-12-31', 1, 'date', 'ASC');
+INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Паломничества', '2009. Паломничества', 'filter', 'collection/parikram.jpg', '2009-01-01', '2009-12-31', 1, 'date', 'ASC');
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Обращения, встречи с учениками', '2009. Обращения, встречи с учениками', 'filter', 'collection/treatment.jpg', '2009-01-01', '2009-12-31', 5, 'date', 'ASC');
 INSERT INTO collection_filter_tag (collection_id, tag_id)  VALUES ((select id from collection where full_name='2009. Обращения, встречи с учениками'), (select id from tag where name='встречи с учениками'));
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Публичные лекции', '2009. Публичные лекции', 'filter', 'collection/public.jpg', '2009-01-01', '2009-12-31', 4, 'date', 'ASC');
@@ -226,7 +226,7 @@ INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((selec
 
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, order_by, direction)  VALUES ('Все', '2008. Все лекции', 'filter', 'collection/all.jpg', '2008-01-01', '2008-12-31', 'date', 'ASC');
 INSERT INTO collection (short_name, full_name, source, img_url)  VALUES ('Семинары', '2008. Семинары', 'collection', 'collection/seminar.jpg');
-INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Паломничества', '2008. Паломничества', 'filter', 'collection/parikram.jpg'), '2008-01-01', '2008-12-31', 1, 'date', 'ASC');
+INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Паломничества', '2008. Паломничества', 'filter', 'collection/parikram.jpg', '2008-01-01', '2008-12-31', 1, 'date', 'ASC');
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Обращения, встречи с учениками', '2008. Обращения, встречи с учениками', 'filter', 'collection/treatment.jpg', '2008-01-01', '2008-12-31', 5, 'date', 'ASC');
 INSERT INTO collection_filter_tag (collection_id, tag_id)  VALUES ((select id from collection where full_name='2008. Обращения, встречи с учениками'), (select id from tag where name='встречи с учениками'));
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Публичные лекции', '2008. Публичные лекции', 'filter', 'collection/public.jpg', '2008-01-01', '2008-12-31', 4, 'date', 'ASC');
@@ -241,7 +241,7 @@ INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((selec
 
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, order_by, direction)  VALUES ('Все', '2007. Все лекции', 'filter', 'collection/all.jpg', '2007-01-01', '2007-12-31', 'date', 'ASC');
 INSERT INTO collection (short_name, full_name, source, img_url)  VALUES ('Семинары', '2007. Семинары', 'collection', 'collection/seminar.jpg');
-INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Паломничества', '2007. Паломничества', 'filter', 'collection/parikram.jpg'), '2007-01-01', '2007-12-31', 1, 'date', 'ASC');
+INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Паломничества', '2007. Паломничества', 'filter', 'collection/parikram.jpg', '2007-01-01', '2007-12-31', 1, 'date', 'ASC');
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Обращения, встречи с учениками', '2007. Обращения, встречи с учениками', 'filter', 'collection/treatment.jpg', '2007-01-01', '2007-12-31', 5, 'date', 'ASC');
 INSERT INTO collection_filter_tag (collection_id, tag_id)  VALUES ((select id from collection where full_name='2007. Обращения, встречи с учениками'), (select id from tag where name='встречи с учениками'));
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Публичные лекции', '2007. Публичные лекции', 'filter', 'collection/public.jpg', '2007-01-01', '2007-12-31', 4, 'date', 'ASC');
@@ -256,7 +256,7 @@ INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((selec
 
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, order_by, direction)  VALUES ('Все', '2006. Все лекции', 'filter', 'collection/all.jpg', '2006-01-01', '2006-12-31', 'date', 'ASC');
 INSERT INTO collection (short_name, full_name, source, img_url)  VALUES ('Семинары', '2006. Семинары', 'collection', 'collection/seminar.jpg');
-INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Паломничества', '2006. Паломничества', 'filter', 'collection/parikram.jpg'), '2006-01-01', '2006-12-31', 1, 'date', 'ASC');
+INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Паломничества', '2006. Паломничества', 'filter', 'collection/parikram.jpg', '2006-01-01', '2006-12-31', 1, 'date', 'ASC');
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Обращения, встречи с учениками', '2006. Обращения, встречи с учениками', 'filter', 'collection/treatment.jpg', '2006-01-01', '2006-12-31', 5, 'date', 'ASC');
 INSERT INTO collection_filter_tag (collection_id, tag_id)  VALUES ((select id from collection where full_name='2006. Обращения, встречи с учениками'), (select id from tag where name='встречи с учениками'));
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Публичные лекции', '2006. Публичные лекции', 'filter', 'collection/public.jpg', '2006-01-01', '2006-12-31', 4, 'date', 'ASC');
@@ -271,7 +271,7 @@ INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((selec
 
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, order_by, direction)  VALUES ('Все', '2005. Все лекции', 'filter', 'collection/all.jpg', '2005-01-01', '2005-12-31', 'date', 'ASC');
 INSERT INTO collection (short_name, full_name, source, img_url)  VALUES ('Семинары', '2005. Семинары', 'collection', 'collection/seminar.jpg');
-INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Паломничества', '2005. Паломничества', 'filter', 'collection/parikram.jpg'), '2005-01-01', '2005-12-31', 1, 'date', 'ASC');
+INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Паломничества', '2005. Паломничества', 'filter', 'collection/parikram.jpg', '2005-01-01', '2005-12-31', 1, 'date', 'ASC');
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Обращения, встречи с учениками', '2005. Обращения, встречи с учениками', 'filter', 'collection/treatment.jpg', '2005-01-01', '2005-12-31', 5, 'date', 'ASC');
 INSERT INTO collection_filter_tag (collection_id, tag_id)  VALUES ((select id from collection where full_name='2005. Обращения, встречи с учениками'), (select id from tag where name='встречи с учениками'));
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Публичные лекции', '2005. Публичные лекции', 'filter', 'collection/public.jpg', '2005-01-01', '2005-12-31', 4, 'date', 'ASC');
@@ -286,7 +286,7 @@ INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((selec
 
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, order_by, direction)  VALUES ('Все', '2004. Все лекции', 'filter', 'collection/all.jpg', '2004-01-01', '2004-12-31', 'date', 'ASC');
 INSERT INTO collection (short_name, full_name, source, img_url)  VALUES ('Семинары', '2004. Семинары', 'collection', 'collection/seminar.jpg');
-INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Паломничества', '2004. Паломничества', 'filter', 'collection/parikram.jpg'), '2004-01-01', '2004-12-31', 1, 'date', 'ASC');
+INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Паломничества', '2004. Паломничества', 'filter', 'collection/parikram.jpg', '2004-01-01', '2004-12-31', 1, 'date', 'ASC');
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Обращения, встречи с учениками', '2004. Обращения, встречи с учениками', 'filter', 'collection/treatment.jpg', '2004-01-01', '2004-12-31', 5, 'date', 'ASC');
 INSERT INTO collection_filter_tag (collection_id, tag_id)  VALUES ((select id from collection where full_name='2004. Обращения, встречи с учениками'), (select id from tag where name='встречи с учениками'));
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Публичные лекции', '2004. Публичные лекции', 'filter', 'collection/public.jpg', '2004-01-01', '2004-12-31', 4, 'date', 'ASC');
@@ -301,7 +301,7 @@ INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((selec
 
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, order_by, direction)  VALUES ('Все', '2003. Все лекции', 'filter', 'collection/all.jpg', '2003-01-01', '2003-12-31', 'date', 'ASC');
 INSERT INTO collection (short_name, full_name, source, img_url)  VALUES ('Семинары', '2003. Семинары', 'collection', 'collection/seminar.jpg');
-INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Паломничества', '2003. Паломничества', 'filter', 'collection/parikram.jpg'), '2003-01-01', '2003-12-31', 1, 'date', 'ASC');
+INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Паломничества', '2003. Паломничества', 'filter', 'collection/parikram.jpg', '2003-01-01', '2003-12-31', 1, 'date', 'ASC');
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Обращения, встречи с учениками', '2003. Обращения, встречи с учениками', 'filter', 'collection/treatment.jpg', '2003-01-01', '2003-12-31', 5, 'date', 'ASC');
 INSERT INTO collection_filter_tag (collection_id, tag_id)  VALUES ((select id from collection where full_name='2003. Обращения, встречи с учениками'), (select id from tag where name='встречи с учениками'));
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Публичные лекции', '2003. Публичные лекции', 'filter', 'collection/public.jpg', '2003-01-01', '2003-12-31', 4, 'date', 'ASC');
@@ -316,7 +316,7 @@ INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((selec
 
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, order_by, direction)  VALUES ('Все', '2002. Все лекции', 'filter', 'collection/all.jpg', '2002-01-01', '2002-12-31', 'date', 'ASC');
 INSERT INTO collection (short_name, full_name, source, img_url)  VALUES ('Семинары', '2002. Семинары', 'collection', 'collection/seminar.jpg');
-INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Паломничества', '2002. Паломничества', 'filter', 'collection/parikram.jpg'), '2002-01-01', '2002-12-31', 1, 'date', 'ASC');
+INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Паломничества', '2002. Паломничества', 'filter', 'collection/parikram.jpg', '2002-01-01', '2002-12-31', 1, 'date', 'ASC');
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Обращения, встречи с учениками', '2002. Обращения, встречи с учениками', 'filter', 'collection/treatment.jpg', '2002-01-01', '2002-12-31', 5, 'date', 'ASC');
 INSERT INTO collection_filter_tag (collection_id, tag_id)  VALUES ((select id from collection where full_name='2002. Обращения, встречи с учениками'), (select id from tag where name='встречи с учениками'));
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Публичные лекции', '2002. Публичные лекции', 'filter', 'collection/public.jpg', '2002-01-01', '2002-12-31', 4, 'date', 'ASC');
@@ -331,7 +331,7 @@ INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((selec
 
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, order_by, direction)  VALUES ('Все', '2001. Все лекции', 'filter', 'collection/all.jpg', '2001-01-01', '2001-12-31', 'date', 'ASC');
 INSERT INTO collection (short_name, full_name, source, img_url)  VALUES ('Семинары', '2001. Семинары', 'collection', 'collection/seminar.jpg');
-INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Паломничества', '2001. Паломничества', 'filter', 'collection/parikram.jpg'), '2001-01-01', '2001-12-31', 1, 'date', 'ASC');
+INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Паломничества', '2001. Паломничества', 'filter', 'collection/parikram.jpg', '2001-01-01', '2001-12-31', 1, 'date', 'ASC');
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Обращения, встречи с учениками', '2001. Обращения, встречи с учениками', 'filter', 'collection/treatment.jpg', '2001-01-01', '2001-12-31', 5, 'date', 'ASC');
 INSERT INTO collection_filter_tag (collection_id, tag_id)  VALUES ((select id from collection where full_name='2001. Обращения, встречи с учениками'), (select id from tag where name='встречи с учениками'));
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Публичные лекции', '2001. Публичные лекции', 'filter', 'collection/public.jpg', '2001-01-01', '2001-12-31', 4, 'date', 'ASC');
@@ -346,7 +346,7 @@ INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((selec
 
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, order_by, direction)  VALUES ('Все', '2000. Все лекции', 'filter', 'collection/all.jpg', '2000-01-01', '2000-12-31', 'date', 'ASC');
 INSERT INTO collection (short_name, full_name, source, img_url)  VALUES ('Семинары', '2000. Семинары', 'collection', 'collection/seminar.jpg');
-INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Паломничества', '2000. Паломничества', 'filter', 'collection/parikram.jpg'), '2000-01-01', '2000-12-31', 1, 'date', 'ASC');
+INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Паломничества', '2000. Паломничества', 'filter', 'collection/parikram.jpg', '2000-01-01', '2000-12-31', 1, 'date', 'ASC');
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Обращения, встречи с учениками', '2000. Обращения, встречи с учениками', 'filter', 'collection/treatment.jpg', '2000-01-01', '2000-12-31', 5, 'date', 'ASC');
 INSERT INTO collection_filter_tag (collection_id, tag_id)  VALUES ((select id from collection where full_name='2000. Обращения, встречи с учениками'), (select id from tag where name='встречи с учениками'));
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Публичные лекции', '2000. Публичные лекции', 'filter', 'collection/public.jpg', '2000-01-01', '2000-12-31', 4, 'date', 'ASC');
@@ -361,7 +361,7 @@ INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((selec
 
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, order_by, direction)  VALUES ('Все', '1999. Все лекции', 'filter', 'collection/all.jpg', '1999-01-01', '1999-12-31', 'date', 'ASC');
 INSERT INTO collection (short_name, full_name, source, img_url)  VALUES ('Семинары', '1999. Семинары', 'collection', 'collection/seminar.jpg');
-INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Паломничества', '1999. Паломничества', 'filter', 'collection/parikram.jpg'), '1999-01-01', '1999-12-31', 1, 'date', 'ASC');
+INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Паломничества', '1999. Паломничества', 'filter', 'collection/parikram.jpg', '1999-01-01', '1999-12-31', 1, 'date', 'ASC');
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Обращения, встречи с учениками', '1999. Обращения, встречи с учениками', 'filter', 'collection/treatment.jpg', '1999-01-01', '1999-12-31', 5, 'date', 'ASC');
 INSERT INTO collection_filter_tag (collection_id, tag_id)  VALUES ((select id from collection where full_name='1999. Обращения, встречи с учениками'), (select id from tag where name='встречи с учениками'));
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Публичные лекции', '1999. Публичные лекции', 'filter', 'collection/public.jpg', '1999-01-01', '1999-12-31', 4, 'date', 'ASC');
@@ -376,7 +376,7 @@ INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((selec
 
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, order_by, direction)  VALUES ('Все', '1998. Все лекции', 'filter', 'collection/all.jpg', '1998-01-01', '1998-12-31', 'date', 'ASC');
 INSERT INTO collection (short_name, full_name, source, img_url)  VALUES ('Семинары', '1998. Семинары', 'collection', 'collection/seminar.jpg');
-INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Паломничества', '1998. Паломничества', 'filter', 'collection/parikram.jpg'), '1998-01-01', '1998-12-31', 1, 'date', 'ASC');
+INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Паломничества', '1998. Паломничества', 'filter', 'collection/parikram.jpg', '1998-01-01', '1998-12-31', 1, 'date', 'ASC');
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Обращения, встречи с учениками', '1998. Обращения, встречи с учениками', 'filter', 'collection/treatment.jpg', '1998-01-01', '1998-12-31', 5, 'date', 'ASC');
 INSERT INTO collection_filter_tag (collection_id, tag_id)  VALUES ((select id from collection where full_name='1998. Обращения, встречи с учениками'), (select id from tag where name='встречи с учениками'));
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Публичные лекции', '1998. Публичные лекции', 'filter', 'collection/public.jpg', '1998-01-01', '1998-12-31', 4, 'date', 'ASC');
@@ -391,7 +391,7 @@ INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((selec
 
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, order_by, direction)  VALUES ('Все', '1997. Все лекции', 'filter', 'collection/all.jpg', '1997-01-01', '1997-12-31', 'date', 'ASC');
 INSERT INTO collection (short_name, full_name, source, img_url)  VALUES ('Семинары', '1997. Семинары', 'collection', 'collection/seminar.jpg');
-INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Паломничества', '1997. Паломничества', 'filter', 'collection/parikram.jpg'), '1997-01-01', '1997-12-31', 1, 'date', 'ASC');
+INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Паломничества', '1997. Паломничества', 'filter', 'collection/parikram.jpg', '1997-01-01', '1997-12-31', 1, 'date', 'ASC');
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Обращения, встречи с учениками', '1997. Обращения, встречи с учениками', 'filter', 'collection/treatment.jpg', '1997-01-01', '1997-12-31', 5, 'date', 'ASC');
 INSERT INTO collection_filter_tag (collection_id, tag_id)  VALUES ((select id from collection where full_name='1997. Обращения, встречи с учениками'), (select id from tag where name='встречи с учениками'));
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Публичные лекции', '1997. Публичные лекции', 'filter', 'collection/public.jpg', '1997-01-01', '1997-12-31', 4, 'date', 'ASC');
@@ -406,7 +406,7 @@ INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((selec
 
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, order_by, direction)  VALUES ('Все', '1996. Все лекции', 'filter', 'collection/all.jpg', '1996-01-01', '1996-12-31', 'date', 'ASC');
 INSERT INTO collection (short_name, full_name, source, img_url)  VALUES ('Семинары', '1996. Семинары', 'collection', 'collection/seminar.jpg');
-INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Паломничества', '1996. Паломничества', 'filter', 'collection/parikram.jpg'), '1996-01-01', '1996-12-31', 1, 'date', 'ASC');
+INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Паломничества', '1996. Паломничества', 'filter', 'collection/parikram.jpg', '1996-01-01', '1996-12-31', 1, 'date', 'ASC');
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Обращения, встречи с учениками', '1996. Обращения, встречи с учениками', 'filter', 'collection/treatment.jpg', '1996-01-01', '1996-12-31', 5, 'date', 'ASC');
 INSERT INTO collection_filter_tag (collection_id, tag_id)  VALUES ((select id from collection where full_name='1996. Обращения, встречи с учениками'), (select id from tag where name='встречи с учениками'));
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Публичные лекции', '1996. Публичные лекции', 'filter', 'collection/public.jpg', '1996-01-01', '1996-12-31', 4, 'date', 'ASC');
@@ -421,7 +421,7 @@ INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((selec
 
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, order_by, direction)  VALUES ('Все', '1995. Все лекции', 'filter', 'collection/all.jpg', '1995-01-01', '1995-12-31', 'date', 'ASC');
 INSERT INTO collection (short_name, full_name, source, img_url)  VALUES ('Семинары', '1995. Семинары', 'collection', 'collection/seminar.jpg');
-INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Паломничества', '1995. Паломничества', 'filter', 'collection/parikram.jpg'), '1995-01-01', '1995-12-31', 1, 'date', 'ASC');
+INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Паломничества', '1995. Паломничества', 'filter', 'collection/parikram.jpg', '1995-01-01', '1995-12-31', 1, 'date', 'ASC');
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Обращения, встречи с учениками', '1995. Обращения, встречи с учениками', 'filter', 'collection/treatment.jpg', '1995-01-01', '1995-12-31', 5, 'date', 'ASC');
 INSERT INTO collection_filter_tag (collection_id, tag_id)  VALUES ((select id from collection where full_name='1995. Обращения, встречи с учениками'), (select id from tag where name='встречи с учениками'));
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Публичные лекции', '1995. Публичные лекции', 'filter', 'collection/public.jpg', '1995-01-01', '1995-12-31', 4, 'date', 'ASC');
@@ -436,7 +436,7 @@ INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((selec
 
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, order_by, direction)  VALUES ('Все', '1994. Все лекции', 'filter', 'collection/all.jpg', '1994-01-01', '1994-12-31', 'date', 'ASC');
 INSERT INTO collection (short_name, full_name, source, img_url)  VALUES ('Семинары', '1994. Семинары', 'collection', 'collection/seminar.jpg');
-INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Паломничества', '1994. Паломничества', 'filter', 'collection/parikram.jpg'), '1994-01-01', '1994-12-31', 1, 'date', 'ASC');
+INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Паломничества', '1994. Паломничества', 'filter', 'collection/parikram.jpg', '1994-01-01', '1994-12-31', 1, 'date', 'ASC');
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Обращения, встречи с учениками', '1994. Обращения, встречи с учениками', 'filter', 'collection/treatment.jpg', '1994-01-01', '1994-12-31', 5, 'date', 'ASC');
 INSERT INTO collection_filter_tag (collection_id, tag_id)  VALUES ((select id from collection where full_name='1994. Обращения, встречи с учениками'), (select id from tag where name='встречи с учениками'));
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Публичные лекции', '1994. Публичные лекции', 'filter', 'collection/public.jpg', '1994-01-01', '1994-12-31', 4, 'date', 'ASC');
@@ -451,7 +451,7 @@ INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((selec
 
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, order_by, direction)  VALUES ('Все', '1993. Все лекции', 'filter', 'collection/all.jpg', '1993-01-01', '1993-12-31', 'date', 'ASC');
 INSERT INTO collection (short_name, full_name, source, img_url)  VALUES ('Семинары', '1993. Семинары', 'collection', 'collection/seminar.jpg');
-INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Паломничества', '1993. Паломничества', 'filter', 'collection/parikram.jpg'), '1993-01-01', '1993-12-31', 1, 'date', 'ASC');
+INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Паломничества', '1993. Паломничества', 'filter', 'collection/parikram.jpg', '1993-01-01', '1993-12-31', 1, 'date', 'ASC');
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Обращения, встречи с учениками', '1993. Обращения, встречи с учениками', 'filter', 'collection/treatment.jpg', '1993-01-01', '1993-12-31', 5, 'date', 'ASC');
 INSERT INTO collection_filter_tag (collection_id, tag_id)  VALUES ((select id from collection where full_name='1993. Обращения, встречи с учениками'), (select id from tag where name='встречи с учениками'));
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Публичные лекции', '1993. Публичные лекции', 'filter', 'collection/public.jpg', '1993-01-01', '1993-12-31', 4, 'date', 'ASC');
@@ -466,7 +466,7 @@ INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((selec
 
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, order_by, direction)  VALUES ('Все', '1992. Все лекции', 'filter', 'collection/all.jpg', '1992-01-01', '1992-12-31', 'date', 'ASC');
 INSERT INTO collection (short_name, full_name, source, img_url)  VALUES ('Семинары', '1992. Семинары', 'collection', 'collection/seminar.jpg');
-INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Паломничества', '1992. Паломничества', 'filter', 'collection/parikram.jpg'), '1992-01-01', '1992-12-31', 1, 'date', 'ASC');
+INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Паломничества', '1992. Паломничества', 'filter', 'collection/parikram.jpg', '1992-01-01', '1992-12-31', 1, 'date', 'ASC');
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Обращения, встречи с учениками', '1992. Обращения, встречи с учениками', 'filter', 'collection/treatment.jpg', '1992-01-01', '1992-12-31', 5, 'date', 'ASC');
 INSERT INTO collection_filter_tag (collection_id, tag_id)  VALUES ((select id from collection where full_name='1992. Обращения, встречи с учениками'), (select id from tag where name='встречи с учениками'));
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Публичные лекции', '1992. Публичные лекции', 'filter', 'collection/public.jpg', '1992-01-01', '1992-12-31', 4, 'date', 'ASC');
@@ -481,7 +481,7 @@ INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((selec
 
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, order_by, direction)  VALUES ('Все', '1991. Все лекции', 'filter', 'collection/all.jpg', '1991-01-01', '1991-12-31', 'date', 'ASC');
 INSERT INTO collection (short_name, full_name, source, img_url)  VALUES ('Семинары', '1991. Семинары', 'collection', 'collection/seminar.jpg');
-INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Паломничества', '1991. Паломничества', 'filter', 'collection/parikram.jpg'), '1991-01-01', '1991-12-31', 1, 'date', 'ASC');
+INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Паломничества', '1991. Паломничества', 'filter', 'collection/parikram.jpg', '1991-01-01', '1991-12-31', 1, 'date', 'ASC');
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Обращения, встречи с учениками', '1991. Обращения, встречи с учениками', 'filter', 'collection/treatment.jpg', '1991-01-01', '1991-12-31', 5, 'date', 'ASC');
 INSERT INTO collection_filter_tag (collection_id, tag_id)  VALUES ((select id from collection where full_name='1991. Обращения, встречи с учениками'), (select id from tag where name='встречи с учениками'));
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Публичные лекции', '1991. Публичные лекции', 'filter', 'collection/public.jpg', '1991-01-01', '1991-12-31', 4, 'date', 'ASC');
