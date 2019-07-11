@@ -119,7 +119,9 @@ CREATE TABLE IF NOT EXISTS collection
     date_to          date,
     "language"       lang,
     order_by         orderby,
-	  direction        direction
+	direction        direction,
+	is_new           boolean DEFAULT false,
+	visible          boolean DEFAULT true,
 );
 COMMENT ON TABLE collection IS 'Подборки';
 
