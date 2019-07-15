@@ -240,6 +240,28 @@ CREATE TABLE vacancy (
 );
 COMMENT ON TABLE vacancy IS 'Вакансии';
 
+CREATE TABLE IF NOT EXISTS photo_album
+(
+    id               serial PRIMARY KEY,
+    title           character varying(255) not null,
+    datetime         timestamp not null,
+    ordern           integer,
+    img_url          text not null
+);
+COMMENT ON TABLE photo_album IS 'Фотоальбом';
+
+
+CREATE TABLE IF NOT EXISTS photo
+(
+    id               serial PRIMARY KEY,
+    title           character varying(255) not null,
+    album_id         integer not null references photo_album(id) on delete cascade,
+    img_url          text not null,
+    ordern           integer
+);
+COMMENT ON TABLE photo IS 'Фотография';
+CREATE INDEX photo_photo_album_idx ON photo(album_id);
+
 CREATE TABLE media_fts (
     id INTEGER NOT NULL,
     fts TSVECTOR,
