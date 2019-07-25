@@ -13,7 +13,10 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class JiraIssueResponse implements Serializable{
     private List<JiraIssue> issues;
+    //количество записей в ответе
     private int maxResults;
+    //offset для пейджинга
     private int startAt;
+    //общее количество записей
     private int total;
 }

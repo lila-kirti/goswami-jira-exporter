@@ -10,7 +10,9 @@ import java.io.Serializable;
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class JiraIssue implements Serializable {
+    //идентификатор лекции в JIRA
     private String key;
+    //поля с данными
     private JiraField fields;
 }
 
