@@ -117,13 +117,18 @@ CREATE TABLE IF NOT EXISTS collection
     verse            integer,
     date_from        date,
     date_to          date,
+    location_id      integer,
     "language"       lang,
     order_by         orderby,
-	direction        direction,
-	is_new           boolean DEFAULT false,
-	visible          boolean DEFAULT true,
+	  direction        direction,
+	  is_new           boolean DEFAULT false,
+	  visible          boolean DEFAULT true
 );
 COMMENT ON TABLE collection IS 'Подборки';
+
+ALTER TABLE collection ADD CONSTRAINT collection_location_fk FOREIGN KEY (location_id) REFERENCES location(id);
+ALTER TABLE collection ADD CONSTRAINT collection_category_fk FOREIGN KEY (category_id) REFERENCES category(id);
+ALTER TABLE collection ADD CONSTRAINT collection_scripture_fk FOREIGN KEY (scripture_id) REFERENCES scripture(id);
 
 CREATE TABLE IF NOT EXISTS collection_hierarchy
 (

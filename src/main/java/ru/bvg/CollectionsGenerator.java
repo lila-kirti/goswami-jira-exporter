@@ -34,7 +34,7 @@ public class CollectionsGenerator {
 
     private static void writeCollection(BufferedWriter writer, Collection collection, int year, int index) throws IOException {
         String title = collection.getTitle().replaceAll("\\'", "''");
-        writer.write(String.format("INSERT INTO collection (short_name, full_name, source, img_url)  VALUES ('%s', '%s', 'collection', 'collection/%s.jpg');",
+        writer.write(String.format("INSERT INTO collection (short_name, full_name, source, img_url)  VALUES ('%s', '%s', 'lecture', 'collection/%s.jpg');",
                 title, title, UUID.randomUUID()));
         writer.newLine();
         writer.write(String.format("INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((select id from collection where full_name='%d. Семинары'), (select id from collection where full_name='%s'), %d);", year, title, index));

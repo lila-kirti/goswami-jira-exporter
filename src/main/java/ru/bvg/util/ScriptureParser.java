@@ -77,11 +77,11 @@ public class ScriptureParser {
             Integer chapter = Integer.parseInt(parts[1]);
             List<Integer> verses = parseInterval(parts[2]);
             for (Integer verse : verses) {
-                scriptures.add(new Media.Scripture(ScriptureEnum.BHAGAVAD_GITA.getId(), canto, chapter, verse));
+                scriptures.add(new Media.Scripture(ScriptureEnum.SRIMAD_BHAGAVATAM.getId(), canto, chapter, verse));
             }
         }
         if (parts.length > 3)
-            throw new IllegalStateException("Bhagavad-gita verse format incorrect: " + verseString);
+            throw new IllegalStateException("Srimad-Bhagavatam verse format incorrect: " + verseString);
         return scriptures;
     }
 
