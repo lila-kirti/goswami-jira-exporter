@@ -120,9 +120,10 @@ CREATE TABLE IF NOT EXISTS collection
     location_id      integer,
     "language"       lang,
     order_by         orderby,
-	  direction        direction,
-	  is_new           boolean DEFAULT false,
-	  visible          boolean DEFAULT true
+	direction        direction,
+	is_new           boolean DEFAULT false,
+	is_show_detail   boolean DEFAULT true,
+	visible          boolean DEFAULT true
 );
 COMMENT ON TABLE collection IS 'Подборки';
 
@@ -175,6 +176,50 @@ CREATE TABLE IF NOT EXISTS "user"
     CONSTRAINT       user_email_key UNIQUE (email)
 );
 COMMENT ON TABLE "user" IS 'Основные данные пользователей';
+
+CREATE TABLE IF NOT EXISTS user_collection
+(
+    user_id          integer not null references "user"(id) on delete cascade,
+    collection_id    integer not null references collection(id) on delete cascade,
+    CONSTRAINT user_collection_key PRIMARY KEY (user_id, collection_id)
+);
+COMMENT ON TABLE user_collection IS 'Избранные подборки';
+
+CREATE INDEX user_collection_user_idx ON user_collection(user_id);
+
+CREATE TABLE IF NOT EXISTS user_media
+(
+    user_id     integer not null references "user"(id) on delete cascade,
+    media_id    integer not null references media(id) on delete cascade,
+    CONSTRAINT user_media_key PRIMARY KEY (user_id, media_id)
+);
+COMMENT ON TABLE user_media IS 'Избранные лекции';
+
+CREATE INDEX user_media_user_idx ON user_media(user_id);
+
+
+CREATE TABLE IF NOT EXISTS user_collection_history
+(
+    user_id          integer not null references "user"(id) on delete cascade,
+    collection_id    integer not null references collection(id) on delete cascade,
+    datetime         timestamp not null,
+    CONSTRAINT user_collection_history_key PRIMARY KEY (user_id, collection_id)
+);
+COMMENT ON TABLE user_collection_history IS 'История просмотра подборок';
+
+CREATE INDEX user_collection_history_user_idx ON user_collection_history(user_id);
+
+CREATE TABLE IF NOT EXISTS user_media_history
+(
+    user_id          integer not null references "user"(id) on delete cascade,
+    media_id         integer not null references media(id) on delete cascade,
+    datetime         timestamp not null,
+    CONSTRAINT user_media_history_key PRIMARY KEY (user_id, media_id)
+);
+COMMENT ON TABLE user_media_history IS 'История прослушивания лекций';
+
+CREATE INDEX user_media_history_user_idx ON user_media_history(user_id);
+
 
 CREATE TABLE "role" (
   id serial PRIMARY KEY, 
