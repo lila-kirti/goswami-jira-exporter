@@ -294,6 +294,7 @@ CREATE TABLE vacancy (
     title         varchar(255) NOT NULL,
     description   text,
     img_uri       varchar(255),
+    ordern        integer,
     CONSTRAINT vacancy_pkey PRIMARY KEY(id)
 );
 COMMENT ON TABLE vacancy IS 'Вакансии';
