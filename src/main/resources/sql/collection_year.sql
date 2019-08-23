@@ -1,4 +1,3 @@
-INSERT INTO collection (short_name, full_name, source, img_url)  VALUES ('По годам', 'По годам', 'collection', 'collection/year.jpg');
 INSERT INTO collection (short_name, full_name, source, img_url)  VALUES ('2019', '2019 год', 'collection', 'collection/2019.jpg');
 INSERT INTO collection (short_name, full_name, source, img_url)  VALUES ('2018', '2018 год', 'collection', 'collection/2018.jpg');
 INSERT INTO collection (short_name, full_name, source, img_url)  VALUES ('2017', '2017 год', 'collection', 'collection/2017.jpg');

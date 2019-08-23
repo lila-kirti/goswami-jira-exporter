@@ -123,7 +123,8 @@ CREATE TABLE IF NOT EXISTS collection
 	direction        direction,
 	is_new           boolean DEFAULT false,
 	is_show_detail   boolean DEFAULT true,
-	visible          boolean DEFAULT true
+	visible          boolean DEFAULT true,
+	ordern           integer
 );
 COMMENT ON TABLE collection IS 'Подборки';
 

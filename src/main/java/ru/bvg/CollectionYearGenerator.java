@@ -69,7 +69,8 @@ public class CollectionYearGenerator {
         list.add(String.format("INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((select id from collection where full_name='%d год'), (select id from collection where full_name='%d. Паломничества'), 3);", year, year));
         list.add(String.format("INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((select id from collection where full_name='%d год'), (select id from collection where full_name='%d. Обращения, встречи с учениками'), 4);", year, year));
         list.add(String.format("INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((select id from collection where full_name='%d год'), (select id from collection where full_name='%d. Публичные лекции'), 5);", year, year));
-        list.add(String.format("INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((select id from collection where full_name='%d год'), (select id from collection where full_name='%d. Лекции на церемонии посвящения'), 6);", year, year));
+        list.add(String.format("INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((select id from collection where full_name='%d год'), (select id from collection where full_name='%d. Лекции на праздниках'), 6);", year, year));
+        list.add(String.format("INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((select id from collection where full_name='%d год'), (select id from collection where full_name='%d. Лекции на церемонии посвящения'), 7);", year, year));
         return list;
     }
 

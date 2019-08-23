@@ -1,4 +1,4 @@
-INSERT INTO collection (short_name, full_name, source, img_url)  VALUES ('По священным писаниям', 'По священным писаниям', 'collection', 'collection/shastra.jpg');
+
 
 INSERT INTO collection (short_name, full_name, source, img_url)  VALUES ('Бхагавад-гита', 'Бхагавад-гита', 'collection', 'collection/bg.jpg');
 INSERT INTO collection (short_name, full_name, source, img_url)  VALUES ('Семинары','Семинары по Бхагавад-гите', 'collection', 'collection/bg-seminar.jpg');
