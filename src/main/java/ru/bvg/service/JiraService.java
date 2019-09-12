@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import ru.bvg.model.JiraIssueResponse;
@@ -32,7 +33,10 @@ public class JiraService {
                 .append("startAt=").append(offset)
                 .append("&maxResults=").append(size)
                 .append("&jql=type=\"Обработанная лекция\" and \"Не публиковать на сайте\" is EMPTY and resolution = Разрешен ORDER BY \"Дата лекции\"");
-        return new RestTemplate().exchange(url.toString(), HttpMethod.GET,
+        RestTemplate restTemplate = new RestTemplate();
+        restTemplate.getMessageConverters()
+                .add(0, new StringHttpMessageConverter(Charset.forName("UTF-8")));
+        return restTemplate.exchange(url.toString(), HttpMethod.GET,
                 new HttpEntity(createHeaders()), JiraIssueResponse.class).getBody();
 
 
@@ -44,7 +48,10 @@ public class JiraService {
         url.append("/rest/api/2/search?")
                 .append("jql=type=\"Обработанная лекция\" and \"Дата лекции\"=")
                 .append(sdf.format(date));
-        return new RestTemplate().exchange(url.toString(), HttpMethod.GET,
+        RestTemplate restTemplate = new RestTemplate();
+        restTemplate.getMessageConverters()
+                .add(0, new StringHttpMessageConverter(Charset.forName("UTF-8")));
+        return restTemplate.exchange(url.toString(), HttpMethod.GET,
                 new HttpEntity(createHeaders()), JiraIssueResponse.class).getBody();
     }
 
@@ -52,7 +59,7 @@ public class JiraService {
         return new HttpHeaders() {{
             String auth = jiraLogin + ":" + jiraPassword;
             String encodedAuth = Base64.encode(
-                    auth.getBytes(Charset.forName("US-ASCII")));
+                    auth.getBytes(Charset.forName("UTF-8")));
             String authHeader = "Basic " + encodedAuth;
             set("Authorization", authHeader);
         }};

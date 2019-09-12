@@ -12,6 +12,7 @@ INSERT INTO collection (short_name, full_name, source, img_url)  VALUES ('Пес
 INSERT INTO collection (short_name, full_name, source, img_url)  VALUES ('Песнь 11', 'Шримад-Бхагаватам. Песнь 11', 'collection', 'collection/sb11.jpg');
 INSERT INTO collection (short_name, full_name, source, img_url)  VALUES ('Песнь 12', 'Шримад-Бхагаватам. Песнь 12', 'collection', 'collection/sb12.jpg');
 
+INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((select id from collection where full_name='Шримад-Бхагаватам'), (select id from collection where full_name='Семинары по Шримад-Бхагаватам'), 0);
 INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((select id from collection where full_name='Шримад-Бхагаватам'), (select id from collection where full_name='Шримад-Бхагаватам. Песнь 1'), 1);
 INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((select id from collection where full_name='Шримад-Бхагаватам'), (select id from collection where full_name='Шримад-Бхагаватам. Песнь 2'), 2);
 INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((select id from collection where full_name='Шримад-Бхагаватам'), (select id from collection where full_name='Шримад-Бхагаватам. Песнь 3'), 3);

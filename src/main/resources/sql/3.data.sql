@@ -3,7 +3,7 @@ INSERT INTO donation
 VALUES (
   'На развитие Студии',
   'Разного рода текущие расходы, связанные с поддержанием и усовершенствованием материально-технической базы Студии Госвами.ру.',
-  '/content/studio/site-development.png',
+  '/donation/site-development.png',
   null,
   null,
   '2030-03-01',
@@ -15,7 +15,7 @@ INSERT INTO donation
 VALUES (
   'Лицензия для JIRA сервера',
   'Лицензия для JIRA сервера https://www.atlassian.com/software/jira/pricing?tab=self-hosted. Система используется для управления обработкой лекций.',
-  '/content/studio/site-development.png',
+  '/donation/site-development.png',
   102,
   630,
   '2019-07-01',

@@ -23,7 +23,9 @@ COMMENT ON TABLE category IS 'Справочник категорий лекци
 CREATE TABLE IF NOT EXISTS scripture
 (
     id               serial PRIMARY KEY,
-    "name"           character varying(512) not null
+    "name"           character varying(512) not null,
+    description      text,
+    expression       varchar(256)
 );
 COMMENT ON TABLE category IS 'Священные писания';
 
@@ -120,11 +122,11 @@ CREATE TABLE IF NOT EXISTS collection
     location_id      integer,
     "language"       lang,
     order_by         orderby,
-	direction        direction,
-	is_new           boolean DEFAULT false,
-	is_show_detail   boolean DEFAULT true,
-	visible          boolean DEFAULT true,
-	ordern           integer
+    direction        direction,
+    is_new           boolean DEFAULT false,
+    is_show_detail   boolean DEFAULT true,
+    visible          boolean DEFAULT true,
+    ordern           integer
 );
 COMMENT ON TABLE collection IS 'Подборки';
 

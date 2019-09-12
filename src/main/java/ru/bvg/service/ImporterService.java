@@ -8,6 +8,7 @@ import org.springframework.util.CollectionUtils;
 import ru.bvg.mapper.MediaMapper;
 import ru.bvg.model.*;
 
+import java.time.ZoneId;
 import java.util.List;
 
 @Service
@@ -42,6 +43,9 @@ public class ImporterService {
         MediaMapper mediaMapper = new MediaMapper();
         for (JiraIssue jiraIssue : response.getIssues()) {
             Media media = mediaMapper.map(jiraIssue);
+
+            if (media.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate().getYear() == 1956)
+                continue;
             //место
             if (jiraIssue.getFields().getPlace() != null) {
                 Integer placeId = importerDao.savePlace(jiraIssue.getFields().getPlace());
@@ -66,7 +70,7 @@ public class ImporterService {
         GooswamiRuMediaResponse articles = goswamiRuService.getArticles(1, 100);
         for (BookArticle article : articles.getCollection()) {
             Media media = mediaMapper.mapArticle(article);
-            media.setImgUri("media/article.jpg");
+            media.setImgUri("article/article-default.jpg");
             importerDao.saveMedia(media);
         }
     }

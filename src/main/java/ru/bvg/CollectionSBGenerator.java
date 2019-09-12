@@ -24,6 +24,8 @@ public class CollectionSBGenerator {
             }
             writer.newLine();
 
+            writer.write(generateSeminarHierarchy());
+            writer.newLine();
             for (int i = 1; i <= 12; i++) {
                 writer.write(generateCantoHierarchy(i));
                 writer.newLine();
@@ -69,6 +71,10 @@ public class CollectionSBGenerator {
     private static String generateCollectionChapter(int canto, int chapter) {
         return String.format("INSERT INTO collection (short_name, full_name, source, img_url, canto, chapter, order_by, direction)  VALUES ('Глава %d', 'Шримад-Бхагаватам. Песнь %d. Глава %d', 'filter', 'collection/sb%d_%d.jpg', %d, %d, 'verse', 'ASC');",
                 chapter, canto, chapter, canto, chapter, canto, chapter);
+    }
+
+    private static String generateSeminarHierarchy() {
+        return "INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((select id from collection where full_name='Шримад-Бхагаватам'), (select id from collection where full_name='Семинары по Шримад-Бхагаватам'), 0);";
     }
 
     private static String generateChapterHierarchy(int canto, int chapter, int order) {
