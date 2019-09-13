@@ -124,7 +124,7 @@ CREATE TABLE IF NOT EXISTS collection
     order_by         orderby,
     direction        direction,
     is_new           boolean DEFAULT false,
-    is_show_detail   boolean DEFAULT true,
+    is_show_detail   boolean DEFAULT false,
     visible          boolean DEFAULT true,
     ordern           integer
 );

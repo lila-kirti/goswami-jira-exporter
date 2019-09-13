@@ -14,4 +14,5 @@ import java.util.List;
 public class Collection {
     private String title;
     private List<String> issues;
+    private List<String> types;
 }

@@ -11,10 +11,7 @@ import ru.bvg.model.Collection;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class CollectionExcelParser {
     public List<Collection> parse() {
@@ -35,13 +32,14 @@ public class CollectionExcelParser {
     }
 
     public Map<Integer, List<Collection>> parseByYear() {
-        Map<Integer, List<Collection>> map = new HashMap<>();
+        Map<Integer, List<Collection>> map = new LinkedHashMap<>();
         Workbook workbook;
         try (InputStream is = new FileInputStream(ResourceUtils.getFile("classpath:collections.xlsx"))) {
             workbook = StreamingReader.builder()// buffer size to use when reading InputStream to file (defaults to 1024)
                     .bufferSize(100)
                     .open(is);
             for (Sheet sheet : workbook) {
+                if (!sheet.getSheetName().trim().equals("2018") && !sheet.getSheetName().trim().equals("2017")) continue;
                 List<Collection> collections = new ArrayList<>();
                 parseSheet(sheet, collections);
                 map.put(Integer.parseInt(sheet.getSheetName().trim()), collections);
@@ -55,17 +53,19 @@ public class CollectionExcelParser {
     private void parseSheet(Sheet sheet, List<Collection> collections) {
         String title = null;
         List<String> issues = new ArrayList<>();
+        List<String> types = new ArrayList<>();
         for (Row row : sheet) {
             if (row.getCell(0) != null && !StringUtils.isEmpty(row.getCell(0).getStringCellValue())) {
                 if (!issues.isEmpty()) {
-                    collections.add(new Collection(title, issues));
+                    collections.add(new Collection(title, issues, types));
                     issues = new ArrayList<>();
                 }
                 title = row.getCell(0).getStringCellValue();
+                types = Arrays.asList(row.getCell(2).getStringCellValue().split(","));
             } else if (!StringUtils.isEmpty(row.getCell(1).getStringCellValue())) {
                 issues.add(row.getCell(1).getStringCellValue());
             }
         }
-        collections.add(new Collection(title, issues));
+        collections.add(new Collection(title, issues, types));
     }
 }

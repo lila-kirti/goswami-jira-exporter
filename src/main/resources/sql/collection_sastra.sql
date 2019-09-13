@@ -54,7 +54,7 @@ INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((selec
 INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((select id from collection where full_name='Шри Чайтанья-чаритамрита'), (select id from collection where full_name='Шри Чайтанья-чаритамрита, Мадхья лила'), 3);
 INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((select id from collection where full_name='Шри Чайтанья-чаритамрита'), (select id from collection where full_name='Шри Чайтанья-чаритамрита, Антья лила'), 4);
 
-INSERT INTO collection (short_name, full_name, source, img_url, scripture_id, order_by, direction)  VALUES ('Нектар преданности', 'Нектар преданности', 'filter', 'collection/nd.jpg', 4, 'verse', 'ASC');
+INSERT INTO collection (short_name, full_name, source, img_url, scripture_id, order_by, direction)  VALUES ('Нектар преданности', 'Нектар преданности', 'filter', 'collection/np.jpg', 4, 'verse', 'ASC');
 INSERT INTO collection (short_name, full_name, source, img_url, scripture_id, order_by, direction)  VALUES ('Нектар наставлений', 'Нектар наставлений', 'filter', 'collection/ni.jpg', 5, 'verse', 'ASC');
 INSERT INTO collection (short_name, full_name, source, img_url, scripture_id, order_by, direction)  VALUES ('Шри ишопанишад', 'Шри ишопанишад', 'filter', 'collection/si.jpg', 6, 'verse', 'ASC');
 INSERT INTO collection (short_name, full_name, source, img_url, scripture_id, order_by, direction)  VALUES ('Мадхурья-кадамбини', 'Мадхурья-кадамбини', 'filter', 'collection/si.jpg', 7, 'date', 'DESC');
