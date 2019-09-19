@@ -1,6 +1,5 @@
 package ru.bvg;
 
-import org.apache.commons.codec.digest.DigestUtils;
 import ru.bvg.enumeration.CollectionTypeEnum;
 import ru.bvg.model.Collection;
 import ru.bvg.util.CollectionExcelParser;
