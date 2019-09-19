@@ -30,7 +30,7 @@ public class MediaMapper {
         media.setIssueDate(new Date());
         media.setDuration(jiraFields.getDuration());
         media.setSize(jiraFields.getSize());
-        media.setImgUri("lecture.jpg");
+        media.setImgUri("lecture/lecture_default.jpg");
 
         //категория
         if (jiraFields.getCategory() != null) {
@@ -38,6 +38,7 @@ public class MediaMapper {
             if (categoryEnum != null) {
                 media.setCategoryId(categoryEnum.getId());
             }
+            media.setImgUri(getImgUrlByCategory(categoryEnum));
         }
         //священные писания
         if (jiraFields.getScripture() != null) {
@@ -59,6 +60,7 @@ public class MediaMapper {
 //                            jiraIssue.getKey(), scriptureEnum.getJiraName(), jiraFields.getScriptureVerse()));
                 }
             }
+            media.setImgUri(getImgUrlByScripture(scriptureEnum));
         }
         //язык
         if (jiraFields.getLanguage() == null || jiraFields.getLanguage().getValue().equals("Русский"))
@@ -89,5 +91,52 @@ public class MediaMapper {
         media.setImgUri(bookArticle.getImgUri());
         media.setLanguage("RUS");
         return media;
+    }
+
+    private String getImgUrlByScripture(ScriptureEnum scriptureEnum){
+        switch (scriptureEnum){
+            case BHAGAVAD_GITA:
+                return "lecture/bg_default.jpg";
+            case SRIMAD_BHAGAVATAM:
+                return "lecture/sb_default.jpg";
+            case CAITANYA_CHARITAMRITA:
+                return "lecture/cc_default.jpg";
+            case ISOPANISHAD:
+                return "lecture/si_default.jpg";
+            case NECTAR_OF_INSTRUCTION:
+                return "lecture/nn_default.jpg";
+            case NECTAR_OF_DEVOTION:
+                return "lecture/np_default.jpg";
+            case MADHURYA_KADAMBINI:
+                return "lecture/kadambini_default.jpg";
+            case RAMAYANA:
+                return "lecture/ramayana_default.jpg";
+            default:
+                return "lecture/lecture_default.jpg";
+        }
+    }
+
+    private String getImgUrlByCategory(CategoryEnum categoryEnum){
+        switch (categoryEnum){
+            case CELEBRATION:
+                return "lecture/celebration_default.jpg";
+            case DISCIPLE:
+                return "lecture/darshan_default.jpg";
+            case DISCUSSION:
+                return "lecture/discussion_default.jpg";
+            case INITIATION:
+                return "lecture/initiation_default.jpg";
+            case KIRTAN:
+                return "lecture/kirtan_default.jpg";
+            case PARIKRAMA:
+                return "lecture/parikram_default.jpg";
+            case PUBLIC:
+                return "lecture/public_default.jpg";
+            case TREATMENT:
+                return "lecture/treatment_default.jpg";
+            default:
+                return "lecture/lecture_default.jpg";
+        }
+
     }
 }

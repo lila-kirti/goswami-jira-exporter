@@ -52,20 +52,22 @@ public class CollectionExcelParser {
 
     private void parseSheet(Sheet sheet, List<Collection> collections) {
         String title = null;
+        String image = null;
         List<String> issues = new ArrayList<>();
         List<String> types = new ArrayList<>();
         for (Row row : sheet) {
             if (row.getCell(0) != null && !StringUtils.isEmpty(row.getCell(0).getStringCellValue())) {
                 if (!issues.isEmpty()) {
-                    collections.add(new Collection(title, issues, types));
+                    collections.add(new Collection(title, image, issues, types));
                     issues = new ArrayList<>();
                 }
                 title = row.getCell(0).getStringCellValue();
+                image = row.getCell(3).getStringCellValue();
                 types = Arrays.asList(row.getCell(2).getStringCellValue().split(","));
             } else if (!StringUtils.isEmpty(row.getCell(1).getStringCellValue())) {
                 issues.add(row.getCell(1).getStringCellValue());
             }
         }
-        collections.add(new Collection(title, issues, types));
+        collections.add(new Collection(title, image, issues, types));
     }
 }

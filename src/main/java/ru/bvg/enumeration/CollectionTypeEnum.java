@@ -6,10 +6,18 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum CollectionTypeEnum {
-    SEMINAR("семинар"),
-    PARIKRAM("парикрама"),
-    DECIPLE_RETREAT("ретрит учеников"),
-    DECIPLE_SADHU_SANGA("cадху-санга");
+    BG_SEMINAR("Семинары по Бхагавад-гите"),
+    SB_SEMINAR("Семинары по Шримад-Бхагаватам"),
+    CC_SEMINAR("Семинары по Шри Чайтанье-чаритамрите"),
+    SEMINAR("Семинары"),
+    PARIKRAM("Паломничества"),
+    DISCIPLE_RETREAT("Ретриты учеников"),
+    SADHU_SANGA_RETREAT("Садху-санга"),
+    BHAKTI_SANGAM_RETREAT("Бхакти-сангама"),
+    HOLY_NAME_RETREAT("Ретриты Святого имени"),
+    MASTER_RETREAT("Ретриты для наставников"),
+    PRITI_LAKSHANAM("Прити-лакшанам"),
+    SHDM_RETREAT("Ретриты Школы джапа-медитации");
 
     private String text;
 

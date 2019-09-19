@@ -13,6 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 public class Collection {
     private String title;
+    private String image;
     private List<String> issues;
     private List<String> types;
 }

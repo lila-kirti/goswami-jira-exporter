@@ -36,7 +36,7 @@ public class ImporterDao {
         if (ids.isEmpty()) {
             return insertRefbook("location", null, capitalizeFirstLetter(name));
         }
-        return null;
+        return ids.get(0);
     }
 
     @Transactional

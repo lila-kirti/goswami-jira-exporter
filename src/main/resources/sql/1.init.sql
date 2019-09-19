@@ -11,6 +11,7 @@ CREATE TABLE IF NOT EXISTS tag (
 );
 COMMENT ON TABLE tag IS 'Справочник ключевых слов';
 CREATE INDEX tag_name_idx ON tag(name);
+ALTER TABLE tag ADD UNIQUE (name);
 
 CREATE TABLE IF NOT EXISTS category
 (
@@ -350,12 +351,13 @@ WITH ispell_ru, russian_stem;
 
 -- insert into media_fts
 --     select m.id, setweight( coalesce( to_tsvector('ru', m.title),''),'A') || ' ' ||
---                  setweight( coalesce( to_tsvector('ru', t.name),''),'B') || ' ' ||
+--                  setweight( coalesce( to_tsvector('ru', string_agg(t.name, ',')),''),'B') || ' ' ||
 --                  setweight( coalesce( to_tsvector('ru', (extract(year from m.occurrence_date))::varchar(4)),''),'C') || ' ' ||
 --                  setweight( coalesce( to_tsvector('ru', m.text),''),'D')
 --     FROM media m
 --         left join media_tag mt on m.id=mt.media_id
---         left join tag t on t.id=mt.tag_id;
+--         left join tag t on t.id=mt.tag_id
+--     group by 1;
 
 CREATE OR REPLACE FUNCTION updateMediaFTS() RETURNS trigger AS
 $BODY$
@@ -363,21 +365,21 @@ BEGIN
     IF TG_OP = 'INSERT' THEN
         insert into media_fts
             select m.id, setweight( coalesce( to_tsvector('ru', m.title),''),'A') || ' ' ||
-                         setweight( coalesce( to_tsvector('ru', t.name),''),'B') || ' ' ||
+                         setweight( coalesce( to_tsvector('ru', string_agg(t.name, ',')),''),'B') || ' ' ||
                          setweight( coalesce( to_tsvector('ru', (extract(year from m.occurrence_date))::varchar(4)),''),'C') || ' ' ||
                          setweight( coalesce( to_tsvector('ru', m.text),''),'D')
             FROM media m
                 left join media_tag mt on m.id=mt.media_id
-                left join tag t on t.id=mt.tag_id where m.id=NEW.id;
+                left join tag t on t.id=mt.tag_id where m.id=NEW.id group by 1;
     ELSIF TG_OP = 'UPDATE' THEN
         update media_fts mf set fts=
         (select setweight( coalesce( to_tsvector('ru', m.title),''),'A') || ' ' ||
-                setweight( coalesce( to_tsvector('ru', ts.tag_set_name),''),'B') || ' ' ||
+                setweight( coalesce( to_tsvector('ru', string_agg(t.name, ',')),''),'B') || ' ' ||
                 setweight( coalesce( to_tsvector('ru', (extract(year from m.occurrence_date))::varchar(4)),''),'C') || ' ' ||
-                setweight( coalesce( to_tsvector('ru', m.body),''),'D')
+                setweight( coalesce( to_tsvector('ru', m.text),''),'D')
          FROM media m
              left join media_tag mt on m.id=mt.media_id
-             left join tag t on t.id=mt.tag_id where m.id=NEW.id)
+             left join tag t on t.id=mt.tag_id where m.id=NEW.id group by m.id)
         where mf.id=NEW.id;
     END IF;
     RETURN NEW;
