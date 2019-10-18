@@ -69,7 +69,7 @@ public class CollectionSBGenerator {
     }
 
     private static String generateCollectionChapter(int canto, int chapter) {
-        return String.format("INSERT INTO collection (short_name, full_name, source, img_url, canto, chapter, order_by, direction)  VALUES ('Глава %d', 'Шримад-Бхагаватам. Песнь %d. Глава %d', 'filter', 'collection/sb%d_%d.jpg', %d, %d, 'verse', 'ASC');",
+        return String.format("INSERT INTO collection (short_name, full_name, source, img_url, scripture_id, canto, chapter, order_by, direction)  VALUES ('Глава %d', 'Шримад-Бхагаватам. Песнь %d. Глава %d', 'filter', 'collection/sb%d_%d.jpg', 2, %d, %d, 'verse', 'ASC');",
                 chapter, canto, chapter, canto, chapter, canto, chapter);
     }
 

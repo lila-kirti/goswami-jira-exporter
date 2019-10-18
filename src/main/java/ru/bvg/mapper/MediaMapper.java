@@ -117,6 +117,9 @@ public class MediaMapper {
     }
 
     private String getImgUrlByCategory(CategoryEnum categoryEnum){
+        if (categoryEnum == null){
+            return "lecture/lecture_default.jpg";
+        }
         switch (categoryEnum){
             case CELEBRATION:
                 return "lecture/celebration_default.jpg";

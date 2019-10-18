@@ -26,7 +26,6 @@ INSERT INTO collection (short_name, full_name, source, img_url)  VALUES ('1995',
 INSERT INTO collection (short_name, full_name, source, img_url)  VALUES ('1994', '1994 год', 'collection', 'collection/1994.jpg');
 INSERT INTO collection (short_name, full_name, source, img_url)  VALUES ('1993', '1993 год', 'collection', 'collection/1993.jpg');
 INSERT INTO collection (short_name, full_name, source, img_url)  VALUES ('1992', '1992 год', 'collection', 'collection/1992.jpg');
-INSERT INTO collection (short_name, full_name, source, img_url)  VALUES ('1991', '1991 год', 'collection', 'collection/1991.jpg');
 
 INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((select id from collection where full_name='По годам'), (select id from collection where full_name='2019 год'), 50);
 INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((select id from collection where full_name='По годам'), (select id from collection where full_name='2018 год'), 51);
@@ -56,7 +55,6 @@ INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((selec
 INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((select id from collection where full_name='По годам'), (select id from collection where full_name='1994 год'), 75);
 INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((select id from collection where full_name='По годам'), (select id from collection where full_name='1993 год'), 76);
 INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((select id from collection where full_name='По годам'), (select id from collection where full_name='1992 год'), 77);
-INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((select id from collection where full_name='По годам'), (select id from collection where full_name='1991 год'), 78);
 
 INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, order_by, direction)  VALUES ('Все', '2019. Все лекции', 'filter', 'collection/all.jpg', '2019-01-01', '2019-12-31', 'date', 'ASC');
 INSERT INTO collection (short_name, full_name, source, img_url)  VALUES ('Семинары', '2019. Семинары', 'collection', 'collection/seminar.jpg');
@@ -505,20 +503,4 @@ INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((selec
 INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((select id from collection where full_name='1992 год'), (select id from collection where full_name='1992. Публичные лекции'), 5);
 INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((select id from collection where full_name='1992 год'), (select id from collection where full_name='1992. Лекции на праздниках'), 6);
 INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((select id from collection where full_name='1992 год'), (select id from collection where full_name='1992. Лекции на церемонии посвящения'), 7);
-
-INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, order_by, direction)  VALUES ('Все', '1991. Все лекции', 'filter', 'collection/all.jpg', '1991-01-01', '1991-12-31', 'date', 'ASC');
-INSERT INTO collection (short_name, full_name, source, img_url)  VALUES ('Семинары', '1991. Семинары', 'collection', 'collection/seminar.jpg');
-INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Паломничества', '1991. Паломничества', 'filter', 'collection/parikram.jpg', '1991-01-01', '1991-12-31', 1, 'date', 'ASC');
-INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Обращения, встречи с учениками', '1991. Обращения, встречи с учениками', 'filter', 'collection/treatment.jpg', '1991-01-01', '1991-12-31', 5, 'date', 'ASC');
-INSERT INTO collection_filter_tag (collection_id, tag_id)  VALUES ((select id from collection where full_name='1991. Обращения, встречи с учениками'), (select id from tag where name='встречи с учениками'));
-INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Публичные лекции', '1991. Публичные лекции', 'filter', 'collection/public.jpg', '1991-01-01', '1991-12-31', 4, 'date', 'ASC');
-INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Праздники', '1991. Лекции на праздниках', 'filter', 'collection/celebration.jpg', '1991-01-01', '1991-12-31', 2, 'date', 'ASC');
-INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Инициация', '1991. Лекции на церемонии посвящения', 'filter', 'collection/initiation.jpg', '1991-01-01', '1991-12-31', 7, 'date', 'ASC');
-INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((select id from collection where full_name='1991 год'), (select id from collection where full_name='1991. Все лекции'), 1);
-INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((select id from collection where full_name='1991 год'), (select id from collection where full_name='1991. Семинары'), 2);
-INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((select id from collection where full_name='1991 год'), (select id from collection where full_name='1991. Паломничества'), 3);
-INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((select id from collection where full_name='1991 год'), (select id from collection where full_name='1991. Обращения, встречи с учениками'), 4);
-INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((select id from collection where full_name='1991 год'), (select id from collection where full_name='1991. Публичные лекции'), 5);
-INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((select id from collection where full_name='1991 год'), (select id from collection where full_name='1991. Лекции на праздниках'), 6);
-INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((select id from collection where full_name='1991 год'), (select id from collection where full_name='1991. Лекции на церемонии посвящения'), 7);
 

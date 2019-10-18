@@ -15,7 +15,6 @@ INSERT INTO collection (short_name, full_name, source, img_url)  VALUES ('Сад
 INSERT INTO collection (short_name, full_name, source, img_url)  VALUES ('Бхакти-сангама', 'Бхакти-сангама', 'collection', 'collection/bhakti-sangama.jpg');
 INSERT INTO collection (short_name, full_name, source, img_url)  VALUES ('Ретриты Святого имени', 'Ретриты Святого имени', 'collection', 'collection/nama-retreats.jpg');
 INSERT INTO collection (short_name, full_name, source, img_url)  VALUES ('Ретриты для наставников', 'Ретриты для наставников', 'collection', 'collection/master-retreats.jpg');
-INSERT INTO collection (short_name, full_name, source, img_url)  VALUES ('Прити-лакшанам', 'Прити-лакшанам', 'collection', 'collection/master-retreats.jpg');
 INSERT INTO collection (short_name, full_name, source, img_url)  VALUES ('Ретриты Школы джапа-медитации', 'Ретриты Школы джапа-медитации', 'collection', 'collection/shdm-retreats.jpg');
 
 INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((select id from collection where full_name='Ретриты и фестивали'), (select id from collection where full_name='Ретриты учеников'), 1);
@@ -23,5 +22,4 @@ INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((selec
 INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((select id from collection where full_name='Ретриты и фестивали'), (select id from collection where full_name='Бхакти-сангама'), 3);
 INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((select id from collection where full_name='Ретриты и фестивали'), (select id from collection where full_name='Ретриты Святого имени'), 4);
 INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((select id from collection where full_name='Ретриты и фестивали'), (select id from collection where full_name='Ретриты для наставников'), 5);
-INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((select id from collection where full_name='Ретриты и фестивали'), (select id from collection where full_name='Прити-лакшанам'), 6);
-INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((select id from collection where full_name='Ретриты и фестивали'), (select id from collection where full_name='Ретриты Школы джапа-медитации'), 7);
+INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((select id from collection where full_name='Ретриты и фестивали'), (select id from collection where full_name='Ретриты Школы джапа-медитации'), 6);

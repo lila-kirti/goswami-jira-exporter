@@ -39,7 +39,6 @@ public class CollectionExcelParser {
                     .bufferSize(100)
                     .open(is);
             for (Sheet sheet : workbook) {
-                if (!sheet.getSheetName().trim().equals("2018") && !sheet.getSheetName().trim().equals("2017")) continue;
                 List<Collection> collections = new ArrayList<>();
                 parseSheet(sheet, collections);
                 map.put(Integer.parseInt(sheet.getSheetName().trim()), collections);
@@ -64,7 +63,7 @@ public class CollectionExcelParser {
                 title = row.getCell(0).getStringCellValue();
                 image = row.getCell(3).getStringCellValue();
                 types = Arrays.asList(row.getCell(2).getStringCellValue().split(","));
-            } else if (!StringUtils.isEmpty(row.getCell(1).getStringCellValue())) {
+            } else if (row.getCell(1) != null && !StringUtils.isEmpty(row.getCell(1).getStringCellValue())) {
                 issues.add(row.getCell(1).getStringCellValue());
             }
         }

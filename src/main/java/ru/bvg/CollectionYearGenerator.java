@@ -20,20 +20,20 @@ public class CollectionYearGenerator {
             writer.write(generateCollectionYearMain());
             writer.newLine();
 
-            for (int i = 2019; i > 1990; i--) {
+            for (int i = 2019; i > 1991; i--) {
                 writer.write(generateCollectionYear(i));
                 writer.newLine();
             }
             writer.newLine();
 
             int j = 50;
-            for (int i = 2019; i > 1990; i--) {
+            for (int i = 2019; i > 1991; i--) {
                 writer.write(generateCollectionYearHierarchy(i, j++));
                 writer.newLine();
             }
             writer.newLine();
 
-            for (int i = 2019; i > 1990; i--) {
+            for (int i = 2019; i > 1991; i--) {
                 for (String folder : generateCollectionFolders(i)) {
                     writer.write(folder);
                     writer.newLine();
