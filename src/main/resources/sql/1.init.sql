@@ -275,7 +275,7 @@ CREATE TABLE IF NOT EXISTS password_restore
 (
     id               serial PRIMARY KEY,
     user_id          integer NOT NULL,
-    restore_hash     character varying(32) NOT NULL,
+    restore_hash     character varying(64) NOT NULL,
     time_stamp       timestamp NOT NULL,
     CONSTRAINT password_restore_user_fk FOREIGN KEY (user_id) REFERENCES "user"(id) ON DELETE CASCADE
 );
