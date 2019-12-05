@@ -67,12 +67,12 @@ public class ImporterService {
         for (BookArticle book : books.getCollection()) {
             importerDao.saveMedia(mediaMapper.mapBook(book));
         }
-        GooswamiRuMediaResponse articles = goswamiRuService.getArticles(1, 100);
-        for (BookArticle article : articles.getCollection()) {
-            Media media = mediaMapper.mapArticle(article);
-            media.setImgUri("article/article-default.jpg");
-            importerDao.saveMedia(media);
-        }
+//        GooswamiRuMediaResponse articles = goswamiRuService.getArticles(1, 100);
+//        for (BookArticle article : articles.getCollection()) {
+//            Media media = mediaMapper.mapArticle(article);
+//            media.setImgUri("article/article-default.jpg");
+//            importerDao.saveMedia(media);
+//        }
     }
 
     public void importFromFolio(){
