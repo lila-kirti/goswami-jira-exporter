@@ -17,7 +17,8 @@ public enum CollectionTypeEnum {
     HOLY_NAME_RETREAT("Ретриты Святого имени"),
     MASTER_RETREAT("Ретриты для наставников"),
     PRITI_LAKSHANAM("Прити-лакшанам"),
-    SHDM_RETREAT("Ретриты Школы джапа-медитации");
+    SHDM_RETREAT("Ретриты Школы джапа-медитации"),
+    RETREATS("Ретриты и фестивали");
 
     private String text;
 

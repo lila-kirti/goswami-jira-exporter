@@ -36,6 +36,7 @@ public class CollectionsGenerator {
         for (int i = 1991; i < 2020; i++) {
             orderMap.put(i + ". " + CollectionTypeEnum.SEMINAR.getText(), 100);
             orderMap.put(i + ". " + CollectionTypeEnum.PARIKRAM.getText(), 100);
+            orderMap.put(i + ". " + CollectionTypeEnum.RETREATS.getText(), 100);
         }
     }
 
@@ -47,7 +48,7 @@ public class CollectionsGenerator {
             for (Integer year : map.keySet()) {
                 List<Collection> collections = map.get(year);
                 for (Collection collection : collections) {
-                    writeCollection(writer, collection, year, collections.indexOf(collection) + 1);
+                    writeCollection(writer, collection);
                 }
             }
         } catch (IOException e) {
@@ -55,7 +56,7 @@ public class CollectionsGenerator {
         }
     }
 
-    private static void writeCollection(BufferedWriter writer, Collection collection, int year, int index) throws IOException {
+    private static void writeCollection(BufferedWriter writer, Collection collection) throws IOException {
         String title = collection.getTitle().replaceAll("\\'", "''");
         writer.write(String.format("INSERT INTO collection (short_name, full_name, source, img_url)  VALUES ('%s', '%s', 'lecture', 'collection/%s.jpg');",
                 title, title, collection.getImage()));

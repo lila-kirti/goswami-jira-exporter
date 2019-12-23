@@ -71,6 +71,7 @@ public class CollectionYearGenerator {
         list.add(String.format("INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((select id from collection where full_name='%d год'), (select id from collection where full_name='%d. Публичные лекции'), 5);", year, year));
         list.add(String.format("INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((select id from collection where full_name='%d год'), (select id from collection where full_name='%d. Лекции на праздниках'), 6);", year, year));
         list.add(String.format("INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((select id from collection where full_name='%d год'), (select id from collection where full_name='%d. Лекции на церемонии посвящения'), 7);", year, year));
+        list.add(String.format("INSERT INTO collection_hierarchy (parent_id, children_id, ordern) VALUES ((select id from collection where full_name='%d год'), (select id from collection where full_name='%d. Ретриты и фестивали'), 8);", year, year));
         return list;
     }
 
@@ -84,6 +85,7 @@ public class CollectionYearGenerator {
         folders.add(String.format("INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Публичные лекции', '%d. Публичные лекции', 'filter', 'collection/public.jpg', '%d-01-01', '%d-12-31', 4, 'date', 'ASC');", year, year, year));
         folders.add(String.format("INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Праздники', '%d. Лекции на праздниках', 'filter', 'collection/celebration.jpg', '%d-01-01', '%d-12-31', 2, 'date', 'ASC');", year, year, year));
         folders.add(String.format("INSERT INTO collection (short_name, full_name, source, img_url, date_from, date_to, category_id, order_by, direction)  VALUES ('Инициация', '%d. Лекции на церемонии посвящения', 'filter', 'collection/initiation.jpg', '%d-01-01', '%d-12-31', 7, 'date', 'ASC');", year, year, year));
+        folders.add(String.format("INSERT INTO collection (short_name, full_name, source, img_url)  VALUES ('Ретриты и фестивали', '%d. Ретриты и фестивали', 'collection', 'collection/9ef81568-b905-4c02-ba24-bb2e05e35329.jpg');", year));
         return folders;
     }
 }

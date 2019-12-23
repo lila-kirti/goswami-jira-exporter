@@ -350,12 +350,16 @@ FOR word, hword, hword_part
 WITH ispell_ru, russian_stem;
 
 -- insert into media_fts
---     select m.id, setweight( coalesce( to_tsvector('ru', m.title),''),'A') || ' ' ||
---                  setweight( coalesce( to_tsvector('ru', string_agg(t.name, ',')),''),'B') || ' ' ||
---                  setweight( coalesce( to_tsvector('ru', (extract(year from m.occurrence_date))::varchar(4)),''),'C') || ' ' ||
---                  setweight( coalesce( to_tsvector('ru', m.text),''),'D')
+--     select m.id,  setweight( coalesce( to_tsvector('ru', m.title),''),'A') || ' ' ||
+--                   setweight( coalesce( to_tsvector('ru', string_agg(t.name, ',')),''),'B') || ' ' ||
+--                   setweight( coalesce( to_tsvector('ru', string_agg(l.name, ',')),''),'B') || ' ' ||
+--                   setweight( coalesce( to_tsvector('ru', (extract(year from m.occurrence_date))::varchar(4)),''),'C') || ' ' ||
+--                   setweight( coalesce( to_tsvector('ru', to_char(occurrence_date,'DD.MM.YYYY')),''),'C') || ' ' ||
+--                   setweight( coalesce( to_tsvector('ru', m.text),''),'D') || ' ' ||
+--                   setweight( coalesce( to_tsvector('ru', m.teaser),''),'D')
 --     FROM media m
 --         left join media_tag mt on m.id=mt.media_id
+--         left join location l on m.location_id=l.id
 --         left join tag t on t.id=mt.tag_id
 --     group by 1;
 
@@ -364,21 +368,30 @@ $BODY$
 BEGIN
     IF TG_OP = 'INSERT' THEN
         insert into media_fts
-            select m.id, setweight( coalesce( to_tsvector('ru', m.title),''),'A') || ' ' ||
-                         setweight( coalesce( to_tsvector('ru', string_agg(t.name, ',')),''),'B') || ' ' ||
-                         setweight( coalesce( to_tsvector('ru', (extract(year from m.occurrence_date))::varchar(4)),''),'C') || ' ' ||
-                         setweight( coalesce( to_tsvector('ru', m.text),''),'D')
+            select m.id,
+                setweight( coalesce( to_tsvector('ru', m.title),''),'A') || ' ' ||
+                setweight( coalesce( to_tsvector('ru', string_agg(t.name, ',')),''),'B') || ' ' ||
+                setweight( coalesce( to_tsvector('ru', string_agg(l.name, ',')),''),'B') || ' ' ||
+                setweight( coalesce( to_tsvector('ru', (extract(year from m.occurrence_date))::varchar(4)),''),'C') || ' ' ||
+                setweight( coalesce( to_tsvector('ru', to_char(occurrence_date,'DD.MM.YYYY')),''),'C') || ' ' ||
+                setweight( coalesce( to_tsvector('ru', m.text),''),'D') || ' ' ||
+                setweight( coalesce( to_tsvector('ru', m.teaser),''),'D')
             FROM media m
                 left join media_tag mt on m.id=mt.media_id
+                left join location l on m.location_id=l.id
                 left join tag t on t.id=mt.tag_id where m.id=NEW.id group by 1;
     ELSIF TG_OP = 'UPDATE' THEN
         update media_fts mf set fts=
-        (select setweight( coalesce( to_tsvector('ru', m.title),''),'A') || ' ' ||
-                setweight( coalesce( to_tsvector('ru', string_agg(t.name, ',')),''),'B') || ' ' ||
-                setweight( coalesce( to_tsvector('ru', (extract(year from m.occurrence_date))::varchar(4)),''),'C') || ' ' ||
-                setweight( coalesce( to_tsvector('ru', m.text),''),'D')
+        (select  setweight( coalesce( to_tsvector('ru', m.title),''),'A') || ' ' ||
+                 setweight( coalesce( to_tsvector('ru', string_agg(t.name, ',')),''),'B') || ' ' ||
+                 setweight( coalesce( to_tsvector('ru', string_agg(l.name, ',')),''),'B') || ' ' ||
+                 setweight( coalesce( to_tsvector('ru', (extract(year from m.occurrence_date))::varchar(4)),''),'C') || ' ' ||
+                 setweight( coalesce( to_tsvector('ru', to_char(occurrence_date,'DD.MM.YYYY')),''),'C') || ' ' ||
+                 setweight( coalesce( to_tsvector('ru', m.text),''),'D') || ' ' ||
+                 setweight( coalesce( to_tsvector('ru', m.teaser),''),'D')
          FROM media m
              left join media_tag mt on m.id=mt.media_id
+             left join location l on m.location_id=l.id
              left join tag t on t.id=mt.tag_id where m.id=NEW.id group by m.id)
         where mf.id=NEW.id;
     END IF;
