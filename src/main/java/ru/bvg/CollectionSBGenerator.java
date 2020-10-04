@@ -12,7 +12,7 @@ import java.nio.file.Paths;
 public class CollectionSBGenerator {
 
     public static void main(String[] args) {
-        Path path = Paths.get("G:/javaProjects/sb.sql");
+        Path path = Paths.get("E:/javaProjects/sb.sql");
 
         try (BufferedWriter writer = Files.newBufferedWriter(path)) {
             writer.write(generateCollectionSeminar());

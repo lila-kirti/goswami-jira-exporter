@@ -1,7 +1,8 @@
 package ru.bvg.service;
 
 
-import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
+//import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
+import org.apache.xerces.impl.dv.util.Base64;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -39,6 +40,20 @@ public class JiraService {
         return restTemplate.exchange(url.toString(), HttpMethod.GET,
                 new HttpEntity(createHeaders()), JiraIssueResponse.class).getBody();
 
+
+    }
+
+    public JiraIssueResponse getDailyShlokaIssues(int offset, int size) {
+        StringBuilder url = new StringBuilder(jiraUrl);
+        url.append("/rest/api/2/search?")
+                .append("startAt=").append(offset)
+                .append("&maxResults=").append(size)
+                .append("&jql=type=\"Обработанная лекция\" and labels=\"ни_дня_без_шлоки\" ORDER BY summary ASC");
+        RestTemplate restTemplate = new RestTemplate();
+        restTemplate.getMessageConverters()
+                .add(0, new StringHttpMessageConverter(Charset.forName("UTF-8")));
+        return restTemplate.exchange(url.toString(), HttpMethod.GET,
+                new HttpEntity(createHeaders()), JiraIssueResponse.class).getBody();
 
     }
 
