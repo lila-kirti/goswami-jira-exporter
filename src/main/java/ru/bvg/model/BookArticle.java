@@ -17,4 +17,11 @@ public class BookArticle implements Serializable{
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date date;
     private String imgUri;
+
+    public BookArticle(String title, String teaser, String text, Date date) {
+        this.title = title;
+        this.teaser = teaser;
+        this.text = text;
+        this.date = date;
+    }
 }

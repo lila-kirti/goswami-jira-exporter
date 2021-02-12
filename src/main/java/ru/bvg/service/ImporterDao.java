@@ -9,16 +9,14 @@ import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
+import ru.bvg.model.BookArticle;
 import ru.bvg.model.Media;
 import ru.bvg.model.Refbook;
 import ru.bvg.model.Transcript;
 
 import java.sql.PreparedStatement;
 import java.sql.Types;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -28,6 +26,27 @@ public class ImporterDao {
 
     @Autowired
     private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
+
+    public List<BookArticle> getArticles(){
+        return jdbcTemplate.query("select id, title, teaser, body, occurrence_date from media where type='article'",
+                (resultSet, i) -> new BookArticle(
+                        resultSet.getString(2),
+                        resultSet.getString(3),
+                        resultSet.getString(4),
+                        resultSet.getDate(5)));
+    }
+
+    public List<Media> getMediaIdWithType() {
+        return namedParameterJdbcTemplate.query(
+                "select id, type from media where visible=true order by type",
+                Collections.EMPTY_MAP,
+                (resultSet, i) -> {
+                    Media cd = new Media();
+                    cd.setId(resultSet.getInt(1));
+                    cd.setType(resultSet.getString(2));
+                    return cd;
+                });
+    }
 
     @Transactional
     public Integer savePlace(String name) {

@@ -16,6 +16,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Media  implements Serializable {
+    private Integer id;
     private String jiraKey;
     private String type;
     private String title;
